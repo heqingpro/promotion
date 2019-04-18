@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml" xmlns:shiro="http://www.w3.org/1999/xhtml">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>厦门随心版后台管理</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link th:href="@{/vendor/bootstrap/css/bootstrap.css}" rel="stylesheet">
+
+    <!-- MetisMenu CSS -->
+    <link th:href="@{/vendor/metisMenu/metisMenu.css}" rel="stylesheet">
+
+    <!-- DataTables CSS -->
+    <link th:href="@{/vendor/datatables-plugins/dataTables.bootstrap.css}" rel="stylesheet">
+
+    <!-- DataTables Responsive CSS -->
+    <link th:href="@{/vendor/datatables-responsive/dataTables.responsive.css}" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link th:href="@{/dist/css/sb-admin-2.css}" rel="stylesheet">
+
+    <!-- Custom Fonts -->
+    <link th:href="@{/vendor/font-awesome/css/font-awesome.css}" rel="stylesheet" type="text/css">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
+
+<body>
+
+<div id="wrapper">
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-default navbar-static-top" role="navigation" style="margin-bottom: 0">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" th:href="@{/index}">厦门随心版后台管理系统</a>
+        </div>
+        <!-- /.navbar-header -->
+
+        <div class="navbar-default sidebar" role="navigation">
+            <div class="sidebar-nav navbar-collapse">
+                <ul class="nav" id="side-menu">
+                    <li shiro:hasRole="营销活动管理">
+                        <a href="#"><i class="fa fa-th-large fa-fw"></i> 营销活动管理<span class="fa arrow"></span></a>
+                        <ul class="nav nav-second-level">
+                            <li>
+                                <a th:href="@{/activity/activity}">活动管理</a>
+                            </li>
+                            <li>
+                                <a th:href="@{/activity/goods}">商品管理</a>
+                            </li>
+                            <li>
+                                <a th:href="@{/activity/product}">产品管理</a>
+                            </li>
+                            <li>
+                                <a th:href="@{/activity/filter}">用户过滤名单</a>
+                            </li>
+                            <li>
+                                <a th:href="@{/activity/statistics}">统计</a>
+                            </li>
+                        </ul>
+                        <!-- /.nav-second-level -->
+                    </li>
+                    <li shiro:hasRole="互动弹窗管理">
+                        <a href="#"><i class="fa fa-cubes fa-fw"></i> 互动弹窗管理<span class="fa arrow"></span></a>
+                        <ul class="nav nav-second-level">
+                            <li>
+                                <a th:href="@{/window/mould}">模板管理</a>
+                            </li>
+                            <li>
+                                <a th:href="@{/window/statistics}">统计</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li shiro:hasRole="用户管理">
+                        <a th:href="@{/manager}"><i class="fa fa-user fa-fw"></i> 用户管理</a>
+                    </li>
+                </ul>
+            </div>
+            <!-- /.sidebar-collapse -->
+        </div>
+        <!-- /.navbar-static-side -->
+    </nav>
+
+    <div id="page-wrapper">
+        <div class="row">
+            <div class="col-lg-12">
+                <h3 class="page-header">商品管理</h3>
+            </div>
+            <!-- /.col-lg-12 -->
+        </div>
+        <!-- /.row -->
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        商品列表
+                    </div>
+                    <!-- /.panel-heading -->
+                    <div class="panel-body">
+                        <table width="100%" class="table table-striped table-bordered table-hover"
+                               id="goodsDataTable">
+                            <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>商品编号</th>
+                                <th>商品名称</th>
+                                <th></th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr th:each="info:${list}">
+                                <td th:text="${info.id}"></td>
+                                <td th:text="${info.code}"></td>
+                                <td th:text="${info.name}"></td>
+                                <td></td>
+                            </tr>
+                            </tbody>
+                        </table>
+                        <!-- /.table-responsive -->
+                    </div>
+                    <!-- /.panel-body -->
+                </div>
+                <!-- /.panel -->
+            </div>
+            <!-- /.col-lg-12 -->
+        </div>
+        <!-- /.row -->
+
+        <!--新增商品-->
+        <!-- Modal -->
+        <div class="modal fade" id="addModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+             aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                                onclick="$('#add_goods_form')[0].reset()">&times;
+                        </button>
+                        <h4 class="modal-title" id="add-combo-modal-title">添加商品</h4>
+                    </div>
+                    <div class="modal-body">
+                        <div class="row">
+                            <form role="form" id="add_goods_form">
+                                <div class="col-lg-6">
+                                    <div class="form-group">
+                                        <label>商品编号</label>
+                                        <input class="form-control" id="add_goods_code">
+                                    </div>
+                                </div>
+                                <!-- /.col-lg-6 (nested) -->
+
+                                <div class="col-lg-6">
+                                    <div class="form-group">
+                                        <label>商品名称</label>
+                                        <input class="form-control" id="add_goods_name">
+                                    </div>
+                                </div>
+                                <!-- /.col-lg-6 (nested) -->
+                            </form>
+                        </div>
+                        <!-- /.row (nested) -->
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-primary" id="btn_add_goods">保存</button>
+                        <button type="reset" class="btn btn-default" onclick="$('#add_goods_form')[0].reset()">重置
+                        </button>
+                    </div>
+                </div>
+                <!-- /.modal-content -->
+            </div>
+            <!-- /.modal-dialog -->
+        </div>
+        <!-- /.modal-->
+
+        <!--修改商品-->
+        <!-- Modal -->
+        <div class="modal fade" id="editModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+             aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                                onclick="$('#edit_goods_form')[0].reset()">&times;
+                        </button>
+                        <h4 class="modal-title">修改商品</h4>
+                    </div>
+                    <div class="modal-body">
+                        <div class="row">
+                            <form role="form" id="edit_goods_form">
+                                <div class="col-lg-6">
+                                    <div class="form-group">
+                                        <label>商品编号</label>
+                                        <input class="form-control" id="edit_goods_code">
+                                    </div>
+                                </div>
+                                <!-- /.col-lg-6 (nested) -->
+
+                                <div class="col-lg-6">
+                                    <div class="form-group">
+                                        <label>商品名称</label>
+                                        <input class="form-control" id="edit_goods_name">
+                                    </div>
+                                </div>
+                                <input style="visibility: hidden" id="edit_goods_id">
+                                <!-- /.col-lg-6 (nested) -->
+                            </form>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal"
+                                onclick="$('#edit_goods_form')[0].reset()">关闭
+                        </button>
+                        <button type="button" class="btn btn-primary" id="btn_edit_goods">保存</button>
+                    </div>
+                </div>
+                <!-- /.modal-content -->
+            </div>
+            <!-- /.modal-dialog -->
+        </div>
+        <!-- /.modal-->
+
+        <div class="row">
+            <div class="col-lg-12">
+                <div align="center">
+                    <button data-toggle='modal' data-target='#addModal' type="button" class="btn btn-primary">添加商品
+                    </button>
+                </div>
+            </div>
+            <!-- /.col-lg-12 -->
+        </div>
+    </div>
+    <!-- /#page-wrapper -->
+
+</div>
+<!-- /#wrapper -->
+
+<!-- jQuery -->
+<script th:src="@{/vendor/jquery/jquery.js}"></script>
+
+<!-- Bootstrap Core JavaScript -->
+<script th:src="@{/vendor/bootstrap/js/bootstrap.js}"></script>
+
+<!-- Metis Menu Plugin JavaScript -->
+<script th:src="@{/vendor/metisMenu/metisMenu.js}"></script>
+
+<!-- DataTables JavaScript -->
+<script th:src="@{/vendor/datatables/js/jquery.dataTables.js}"></script>
+<script th:src="@{/vendor/datatables-plugins/dataTables.bootstrap.js}"></script>
+<script th:src="@{/vendor/datatables-responsive/dataTables.responsive.js}"></script>
+
+<!-- Custom Theme JavaScript -->
+<script th:src="@{/dist/js/sb-admin-2.js}"></script>
+
+<!-- Page-Level Demo Scripts - Tables - Use for reference -->
+<script th:inline="javascript">
+    $(document).ready(function () {
+        var languageUrl = ["/json/dataTables.chinese.lang.json"];
+        var table = $('#goodsDataTable').DataTable({
+            responsive: true,
+            language: {
+                "url": languageUrl
+            },
+            searching: false,
+            columns: [
+                {"data": "id"},
+                {"data": "code"},
+                {"data": "name"},
+                {
+                    "data": null,
+                    "title": "操作",
+                    "defaultContent": "<button class='edit-btn' data-toggle='modal' data-target='#editModal'>修改</button> &nbsp;&nbsp;&nbsp; <button class='delete-btn' type='button'>删除</button> ",
+                    "width": "150px"
+                }
+            ]
+        });
+
+        // 打印表格行数据
+        $('#goodsDataTable tbody').on('click', 'tr', function () {
+            console.log(table.row(this).data());
+        });
+
+
+        // 添加商品
+        $('#btn_add_goods').on('click', function () {
+            var name = $("#add_goods_name").val();
+            var code = $("#add_goods_code").val();
+            var data = {
+                'goodsName': name,
+                'goodsCode': code
+            };
+            var postUrl = "/activity/goods";
+            $.ajax({
+                "url": [postUrl],
+                "data": JSON.stringify(data),
+                "contentType": "application/json",
+                "type": "POST",
+                "error": function () {
+                    alert("服务器未正常响应，请重试");
+                },
+                "success": function (response) {
+                    console.log(response);
+                    if (response.data) {
+                        alert("添加成功");
+                        window.location.reload();
+                    } else {
+                        alert(response.message);
+                    }
+                }
+            });
+        });
+
+        // 点击修改按钮
+        $("#goodsDataTable tbody").on("click", ".edit-btn", function () {
+            var row = table.row($(this).parents("tr"));
+            var data = row.data();
+            $("#edit_goods_id").val(data.id);
+            $("#edit_goods_name").val(data.name);
+            $("#edit_goods_code").val(data.code);
+        });
+
+        // 修改商品
+        $('#btn_edit_goods').on('click', function () {
+            var id = $("#edit_goods_id").val();
+            var name = $("#edit_goods_name").val();
+            var code = $("#edit_goods_code").val();
+            var data = {
+                'goodsName': name,
+                'goodsCode': code
+            };
+            var postUrl = "/activity/goods/" + id;
+            $.ajax({
+                "url": [postUrl],
+                "data": JSON.stringify(data),
+                "contentType": "application/json",
+                "type": "PUT",
+                "error": function () {
+                    alert("服务器未正常响应，请重试");
+                },
+                "success": function (response) {
+                    console.log(response);
+                    if (response.data) {
+                        alert("修改成功");
+                        window.location.reload();
+                    } else {
+                        alert(response.message);
+                    }
+                }
+            });
+        });
+
+        // 点击删除按钮
+        $("#goodsDataTable tbody").on("click", ".delete-btn", function () {
+            var row = table.row($(this).parents("tr"));
+            var data = row.data();
+            var delUrl = "/activity/goods/" + data.id;
+            var del = confirm("是否删除该商品");
+            if (del) {
+                $.ajax({
+                    "url": [delUrl],
+                    "type": "DELETE",
+                    "error": function () {
+                        alert("服务器未正常响应，请重试");
+                    },
+                    "success": function (response) {
+                        if (response.data) {
+                            alert("删除成功");
+                            window.location.reload();
+                        } else {
+                            alert(response.message);
+                        }
+                    }
+                });
+            }
+        });
+
+    });
+</script>
+
+</body>
+
+</html>

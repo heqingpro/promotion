@@ -1,0 +1,2131 @@
+<?xml version='1.0' encoding='UTF-8'?><wsdl:definitions name="feeQuerynewdao" targetNamespace="http://server.qfee.boss.xmbtn.com/" xmlns:ns1="http://schemas.xmlsoap.org/soap/http" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://server.qfee.boss.xmbtn.com/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <wsdl:types>
+<xs:schema elementFormDefault="unqualified" targetNamespace="http://server.qfee.boss.xmbtn.com/" version="1.0" xmlns:ns1="http://callcenter.ws.boss.dvte.com/" xmlns:tns="http://server.qfee.boss.xmbtn.com/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+<xs:import namespace="http://callcenter.ws.boss.dvte.com/" />
+<xs:element name="addHdMidautumnAclist" type="tns:addHdMidautumnAclist" />
+<xs:element name="addHdMidautumnAclistResponse" type="tns:addHdMidautumnAclistResponse" />
+<xs:element name="buyOffer" type="tns:buyOffer" />
+<xs:element name="buyOfferResponse" type="tns:buyOfferResponse" />
+<xs:element name="cancelOfferByVo" type="tns:cancelOfferByVo" />
+<xs:element name="cancelOfferByVoResponse" type="tns:cancelOfferByVoResponse" />
+<xs:element name="checkAccount" type="tns:checkAccount" />
+<xs:element name="checkAccountResponse" type="tns:checkAccountResponse" />
+<xs:element name="checkBill" type="tns:checkBill" />
+<xs:element name="checkBillResponse" type="tns:checkBillResponse" />
+<xs:element name="checkHsOffer" type="tns:checkHsOffer" />
+<xs:element name="checkHsOfferResponse" type="tns:checkHsOfferResponse" />
+<xs:element name="checkHsOfferToCust" type="tns:checkHsOfferToCust" />
+<xs:element name="checkHsOfferToCustResponse" type="tns:checkHsOfferToCustResponse" />
+<xs:element name="checkIsBuyhs" type="tns:checkIsBuyhs" />
+<xs:element name="checkIsBuyhsResponse" type="tns:checkIsBuyhsResponse" />
+<xs:element name="checkIsBuylw" type="tns:checkIsBuylw" />
+<xs:element name="checkIsBuylwResponse" type="tns:checkIsBuylwResponse" />
+<xs:element name="checkIsMarketing" type="tns:checkIsMarketing" />
+<xs:element name="checkIsMarketingResponse" type="tns:checkIsMarketingResponse" />
+<xs:element name="checkIsMidAutumnAc" type="tns:checkIsMidAutumnAc" />
+<xs:element name="checkIsMidAutumnAcResponse" type="tns:checkIsMidAutumnAcResponse" />
+<xs:element name="checkIsOpen" type="tns:checkIsOpen" />
+<xs:element name="checkIsOpenResponse" type="tns:checkIsOpenResponse" />
+<xs:element name="checkOperator" type="tns:checkOperator" />
+<xs:element name="checkOperatorResponse" type="tns:checkOperatorResponse" />
+<xs:element name="checkOrderProd" type="tns:checkOrderProd" />
+<xs:element name="checkOrderProdResponse" type="tns:checkOrderProdResponse" />
+<xs:element name="checkOrderProdToCust" type="tns:checkOrderProdToCust" />
+<xs:element name="checkOrderProdToCustResponse" type="tns:checkOrderProdToCustResponse" />
+<xs:element name="getEnddateByProdid" type="tns:getEnddateByProdid" />
+<xs:element name="getEnddateByProdidResponse" type="tns:getEnddateByProdidResponse" />
+<xs:element name="getOnlineorder" type="tns:getOnlineorder" />
+<xs:element name="getOnlineorderResponse" type="tns:getOnlineorderResponse" />
+<xs:element name="getResourcesinfoVO" type="tns:getResourcesinfoVO" />
+<xs:element name="getResourcesinfoVOResponse" type="tns:getResourcesinfoVOResponse" />
+<xs:element name="hscheckCancel" type="tns:hscheckCancel" />
+<xs:element name="hscheckCancelResponse" type="tns:hscheckCancelResponse" />
+<xs:element name="modifyCustomerPwd" type="tns:modifyCustomerPwd" />
+<xs:element name="modifyCustomerPwdResponse" type="tns:modifyCustomerPwdResponse" />
+<xs:element name="openSubscriber" type="tns:openSubscriber" />
+<xs:element name="openSubscriberResponse" type="tns:openSubscriberResponse" />
+<xs:element name="purchaseOfferlog" type="tns:purchaseOfferlog" />
+<xs:element name="purchaseOfferlogResponse" type="tns:purchaseOfferlogResponse" />
+<xs:element name="queryAccount" type="tns:queryAccount" />
+<xs:element name="queryAccountResponse" type="tns:queryAccountResponse" />
+<xs:element name="queryCustomerCard" type="tns:queryCustomerCard" />
+<xs:element name="queryCustomerCardResponse" type="tns:queryCustomerCardResponse" />
+<xs:element name="queryCustomerInfo" type="tns:queryCustomerInfo" />
+<xs:element name="queryCustomerInfoByStbid" type="tns:queryCustomerInfoByStbid" />
+<xs:element name="queryCustomerInfoByStbidResponse" type="tns:queryCustomerInfoByStbidResponse" />
+<xs:element name="queryCustomerInfoResponse" type="tns:queryCustomerInfoResponse" />
+<xs:element name="queryCustomerTransByUser" type="tns:queryCustomerTransByUser" />
+<xs:element name="queryCustomerTransByUserResponse" type="tns:queryCustomerTransByUserResponse" />
+<xs:element name="queryFee" type="tns:queryFee" />
+<xs:element name="queryFeeDetail" type="tns:queryFeeDetail" />
+<xs:element name="queryFeeDetailResponse" type="tns:queryFeeDetailResponse" />
+<xs:element name="queryFeeResponse" type="tns:queryFeeResponse" />
+<xs:element name="queryFfpdDetail" type="tns:queryFfpdDetail" />
+<xs:element name="queryFfpdDetailResponse" type="tns:queryFfpdDetailResponse" />
+<xs:element name="queryGridUserStat" type="tns:queryGridUserStat" />
+<xs:element name="queryGridUserStatResponse" type="tns:queryGridUserStatResponse" />
+<xs:element name="queryHDEffectives" type="tns:queryHDEffectives" />
+<xs:element name="queryHDEffectivesResponse" type="tns:queryHDEffectivesResponse" />
+<xs:element name="queryHDProdClass" type="tns:queryHDProdClass" />
+<xs:element name="queryHDProdClassResponse" type="tns:queryHDProdClassResponse" />
+<xs:element name="queryHdMidautumnAcResult" type="tns:queryHdMidautumnAcResult" />
+<xs:element name="queryHdMidautumnAcResultResponse" type="tns:queryHdMidautumnAcResultResponse" />
+<xs:element name="queryLatestOffer" type="tns:queryLatestOffer" />
+<xs:element name="queryLatestOfferResponse" type="tns:queryLatestOfferResponse" />
+<xs:element name="queryOfferinstByUser" type="tns:queryOfferinstByUser" />
+<xs:element name="queryOfferinstByUserResponse" type="tns:queryOfferinstByUserResponse" />
+<xs:element name="queryPayOfferResult" type="tns:queryPayOfferResult" />
+<xs:element name="queryPayOfferResultResponse" type="tns:queryPayOfferResultResponse" />
+<xs:element name="queryPayResult" type="tns:queryPayResult" />
+<xs:element name="queryPayResultResponse" type="tns:queryPayResultResponse" />
+<xs:element name="queryStbType" type="tns:queryStbType" />
+<xs:element name="queryStbTypeResponse" type="tns:queryStbTypeResponse" />
+<xs:element name="queryUsertype" type="tns:queryUsertype" />
+<xs:element name="queryUsertypeResponse" type="tns:queryUsertypeResponse" />
+<xs:element name="queryeffectiveOffer" type="tns:queryeffectiveOffer" />
+<xs:element name="queryeffectiveOfferResponse" type="tns:queryeffectiveOfferResponse" />
+<xs:element name="rechargFillCard" type="tns:rechargFillCard" />
+<xs:element name="rechargFillCardResponse" type="tns:rechargFillCardResponse" />
+<xs:complexType name="checkHsOffer">
+<xs:sequence>
+<xs:element minOccurs="0" name="arg0" type="xs:string" />
+<xs:element minOccurs="0" name="arg1" type="xs:string" />
+<xs:element minOccurs="0" name="arg2" type="xs:string" />
+<xs:element minOccurs="0" name="arg3" type="xs:string" />
+<xs:element minOccurs="0" name="arg4" type="xs:string" />
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="checkHsOfferResponse">
+<xs:sequence>
+<xs:element minOccurs="0" name="return" type="tns:hsOfferVO" />
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="hsOfferVO">
+<xs:sequence>
+<xs:element minOccurs="0" name="begintime" type="xs:string" />
+<xs:element minOccurs="0" name="endtime" type="xs:string" />
+<xs:element minOccurs="0" name="offer_endtime" type="xs:string" />
+<xs:element minOccurs="0" name="offer_id" type="xs:string" />
+<xs:element minOccurs="0" name="offer_name" type="xs:string" />
+<xs:element minOccurs="0" name="order_msg" type="xs:string" />
+<xs:element minOccurs="0" name="order_type" type="xs:string" />
+<xs:element minOccurs="0" name="subscriberid" type="xs:string" />
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="queryGridUserStat">
+<xs:sequence>
+<xs:element minOccurs="0" name="arg0" type="xs:string" />
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="queryGridUserStatResponse">
+<xs:sequence>
+<xs:element maxOccurs="unbounded" minOccurs="0" name="return" type="tns:gridUserVO" />
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="gridUserVO">
+<xs:sequence>
+<xs:element minOccurs="0" name="business_type" type="xs:string" />
+<xs:element minOccurs="0" name="company_name" type="xs:string" />
+<xs:element minOccurs="0" name="grid_organisename" type="xs:string" />
+<xs:element minOccurs="0" name="large_grid_name" type="xs:string" />
+<xs:element minOccurs="0" name="region_name" type="xs:string" />
+<xs:element minOccurs="0" name="stat_time" type="xs:string" />
+<xs:element minOccurs="0" name="user_count" type="xs:string" />
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="queryStbType">
+<xs:sequence>
+<xs:element minOccurs="0" name="arg0" type="xs:string" />
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="queryStbTypeResponse">
+<xs:sequence>
+<xs:element minOccurs="0" name="return" type="xs:string" />
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="checkBill">
+<xs:sequence>
+<xs:element minOccurs="0" name="arg0" type="xs:string" />
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="checkBillResponse">
+<xs:sequence>
+<xs:element minOccurs="0" name="return" type="xs:string" />
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="queryOfferinstByUser">
+<xs:sequence>
+<xs:element minOccurs="0" name="arg0" type="xs:string" />
+<xs:element minOccurs="0" name="arg1" type="xs:string" />
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="queryOfferinstByUserResponse">
+<xs:sequence>
+<xs:element maxOccurs="unbounded" minOccurs="0" name="return" type="tns:customerOfferinstVO" />
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="customerOfferinstVO">
+<xs:sequence>
+<xs:element minOccurs="0" name="begindate" type="xs:string" />
+<xs:element minOccurs="0" name="enddate" type="xs:string" />
+<xs:element minOccurs="0" name="offer_name" type="xs:string" />
+<xs:element minOccurs="0" name="orderedtime" type="xs:string" />
+<xs:element minOccurs="0" name="prod_price" type="xs:string" />
+<xs:element minOccurs="0" name="status" type="xs:string" />
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="queryeffectiveOffer">
+<xs:sequence>
+<xs:element minOccurs="0" name="arg0" type="xs:string" />
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="queryeffectiveOfferResponse">
+<xs:sequence>
+<xs:element minOccurs="0" name="return" type="tns:hdEffectiveVO" />
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="hdEffectiveVO">
+<xs:sequence>
+<xs:element minOccurs="0" name="begindate" type="xs:string" />
+<xs:element minOccurs="0" name="enddate" type="xs:string" />
+<xs:element minOccurs="0" name="offer_id" type="xs:string" />
+<xs:element minOccurs="0" name="offer_name" type="xs:string" />
+<xs:element minOccurs="0" name="pack_type" type="xs:string" />
+<xs:element minOccurs="0" name="subscriberid" type="xs:string" />
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="cancelOfferByVo">
+<xs:sequence>
+<xs:element minOccurs="0" name="arg0" type="tns:offercancalVo" />
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="offercancalVo">
+<xs:sequence>
+<xs:element minOccurs="0" name="cust_no" type="xs:string" />
+<xs:element minOccurs="0" name="endtime" type="xs:string" />
+<xs:element minOccurs="0" name="offer_id" type="xs:string" />
+<xs:element minOccurs="0" name="operatorCode" type="xs:string" />
+<xs:element minOccurs="0" name="stbcode" type="xs:string" />
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="cancelOfferByVoResponse">
+<xs:sequence>
+<xs:element minOccurs="0" name="return" type="xs:string" />
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="checkIsMidAutumnAc">
+<xs:sequence>
+<xs:element minOccurs="0" name="arg0" type="xs:string" />
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="checkIsMidAutumnAcResponse">
+<xs:sequence>
+<xs:element minOccurs="0" name="return" type="xs:string" />
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="queryFeeDetail">
+<xs:sequence>
+<xs:element minOccurs="0" name="arg0" type="xs:string" />
+<xs:element minOccurs="0" name="arg1" type="xs:string" />
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="queryFeeDetailResponse">
+<xs:sequence>
+<xs:element minOccurs="0" name="return" type="tns:customerFeeDetailVO" />
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="customerFeeDetailVO">
+<xs:sequence>
+<xs:element minOccurs="0" name="begindate" type="xs:string" />
+<xs:element minOccurs="0" name="enddate" type="xs:string" />
+<xs:element minOccurs="0" name="ffpdFee" type="xs:string" />
+<xs:element minOccurs="0" name="hdFee" type="xs:string" />
+<xs:element minOccurs="0" name="kdFee" type="xs:string" />
+<xs:element minOccurs="0" name="mainCount" type="xs:string" />
+<xs:element minOccurs="0" name="mainFee" type="xs:string" />
+<xs:element minOccurs="0" name="sswhFee" type="xs:string" />
+<xs:element minOccurs="0" name="stbFee" type="xs:string" />
+<xs:element minOccurs="0" name="unmainCount" type="xs:string" />
+<xs:element minOccurs="0" name="unmainFee" type="xs:string" />
+<xs:element minOccurs="0" name="wyFee" type="xs:string" />
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="getOnlineorder">
+<xs:sequence>
+<xs:element minOccurs="0" name="arg0" type="xs:string" />
+<xs:element minOccurs="0" name="arg1" type="xs:string" />
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="getOnlineorderResponse">
+<xs:sequence>
+<xs:element maxOccurs="unbounded" minOccurs="0" name="return" type="tns:onlineorderVO" />
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="onlineorderVO">
+<xs:sequence>
+<xs:element minOccurs="0" name="begintime" type="xs:string" />
+<xs:element minOccurs="0" name="code" type="xs:string" />
+<xs:element minOccurs="0" name="endtime" type="xs:string" />
+<xs:element minOccurs="0" name="flag" type="xs:string" />
+<xs:element minOccurs="0" name="path" type="xs:string" />
+<xs:element minOccurs="0" name="pname" type="xs:string" />
+<xs:element minOccurs="0" name="prod_code" type="xs:string" />
+<xs:element minOccurs="0" name="prod_id" type="xs:string" />
+<xs:element minOccurs="0" name="prod_price" type="xs:string" />
+<xs:element minOccurs="0" name="remark1" type="xs:string" />
+<xs:element minOccurs="0" name="remark2" type="xs:string" />
+<xs:element minOccurs="0" name="remark3" type="xs:string" />
+<xs:element minOccurs="0" name="remark4" type="xs:string" />
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="queryPayOfferResult">
+<xs:sequence>
+<xs:element minOccurs="0" name="arg0" type="xs:string" />
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="queryPayOfferResultResponse">
+<xs:sequence>
+<xs:element minOccurs="0" name="return" type="xs:string" />
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="queryCustomerInfo">
+<xs:sequence>
+<xs:element minOccurs="0" name="arg0" type="xs:string" />
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="queryCustomerInfoResponse">
+<xs:sequence>
+<xs:element minOccurs="0" name="return" type="tns:customerInfoVO" />
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="customerInfoVO">
+<xs:sequence>
+<xs:element minOccurs="0" name="address" type="xs:string" />
+<xs:element minOccurs="0" name="buss_type" type="xs:string" />
+<xs:element minOccurs="0" name="cert_name" type="xs:string" />
+<xs:element minOccurs="0" name="cert_no" type="xs:string" />
+<xs:element minOccurs="0" name="company_name" type="xs:string" />
+<xs:element minOccurs="0" name="cust_name" type="xs:string" />
+<xs:element minOccurs="0" name="cust_no" type="xs:string" />
+<xs:element minOccurs="0" name="homephone" type="xs:string" />
+<xs:element minOccurs="0" name="mobile" type="xs:string" />
+<xs:element minOccurs="0" name="money" type="xs:string" />
+<xs:element minOccurs="0" name="password" type="xs:string" />
+<xs:element minOccurs="0" name="status" type="xs:string" />
+<xs:element minOccurs="0" name="stbcode" type="xs:string" />
+<xs:element minOccurs="0" name="subscriberid" type="xs:string" />
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="openSubscriber">
+<xs:sequence>
+<xs:element minOccurs="0" name="arg0" type="xs:string" />
+<xs:element minOccurs="0" name="arg1" type="xs:string" />
+<xs:element minOccurs="0" name="arg2" type="xs:string" />
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="openSubscriberResponse">
+<xs:sequence>
+<xs:element minOccurs="0" name="return" type="tns:resultCode" />
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="resultCode">
+<xs:sequence>
+<xs:element minOccurs="0" name="codeMsg" type="xs:string" />
+<xs:element minOccurs="0" name="returnCode" type="xs:string" />
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="checkOrderProdToCust">
+<xs:sequence>
+<xs:element minOccurs="0" name="arg0" type="xs:string" />
+<xs:element minOccurs="0" name="arg1" type="xs:string" />
+<xs:element minOccurs="0" name="arg2" type="xs:string" />
+<xs:element minOccurs="0" name="arg3" type="xs:string" />
+<xs:element minOccurs="0" name="arg4" type="xs:string" />
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="checkOrderProdToCustResponse">
+<xs:sequence>
+<xs:element minOccurs="0" name="return" type="tns:hsOfferVO" />
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="queryHdMidautumnAcResult">
+<xs:sequence>
+<xs:element minOccurs="0" name="arg0" type="xs:string" />
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="queryHdMidautumnAcResultResponse">
+<xs:sequence>
+<xs:element minOccurs="0" name="return" type="xs:string" />
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="queryAccount">
+<xs:sequence>
+<xs:element minOccurs="0" name="arg0" type="xs:string" />
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="queryAccountResponse">
+<xs:sequence>
+<xs:element maxOccurs="unbounded" minOccurs="0" name="return" type="tns:accountVO" />
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="accountVO">
+<xs:sequence>
+<xs:element maxOccurs="unbounded" minOccurs="0" name="detaillist" nillable="true" type="tns:accountDetailVO" />
+<xs:element minOccurs="0" name="feetype" type="xs:string" />
+<xs:element minOccurs="0" name="money" type="xs:decimal" />
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="accountDetailVO">
+<xs:sequence>
+<xs:element minOccurs="0" name="accountno" type="xs:string" />
+<xs:element minOccurs="0" name="cyccount" type="xs:string" />
+<xs:element minOccurs="0" name="feecode" type="xs:string" />
+<xs:element minOccurs="0" name="feename" type="xs:string" />
+<xs:element minOccurs="0" name="money" type="xs:decimal" />
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="queryFee">
+<xs:sequence>
+<xs:element minOccurs="0" name="arg0" type="xs:string" />
+<xs:element minOccurs="0" name="arg1" type="xs:string" />
+<xs:element minOccurs="0" name="arg2" type="xs:string" />
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="queryFeeResponse">
+<xs:sequence>
+<xs:element maxOccurs="unbounded" minOccurs="0" name="return" type="tns:customerBillVO" />
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="customerBillVO">
+<xs:sequence>
+<xs:element minOccurs="0" name="acct_balance" type="xs:string" />
+<xs:element minOccurs="0" name="cyccount" type="xs:string" />
+<xs:element minOccurs="0" name="discount" type="xs:string" />
+<xs:element minOccurs="0" name="flag" type="xs:string" />
+<xs:element minOccurs="0" name="money" type="xs:string" />
+<xs:element minOccurs="0" name="paymentmoney" type="xs:string" />
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="hscheckCancel">
+<xs:sequence>
+<xs:element minOccurs="0" name="arg0" type="xs:string" />
+<xs:element minOccurs="0" name="arg1" type="xs:string" />
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="hscheckCancelResponse">
+<xs:sequence>
+<xs:element minOccurs="0" name="return" type="tns:hsCheckCancelVO" />
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="hsCheckCancelVO">
+<xs:sequence>
+<xs:element minOccurs="0" name="cancel_code" type="xs:string" />
+<xs:element minOccurs="0" name="cancel_msg" type="xs:string" />
+<xs:element minOccurs="0" name="effectivetime" type="xs:string" />
+<xs:element minOccurs="0" name="endtime" type="xs:string" />
+<xs:element minOccurs="0" name="offerids" type="xs:string" />
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="purchaseOfferlog">
+<xs:sequence>
+<xs:element minOccurs="0" name="arg0" type="tns:purchaseLogVO" />
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="purchaseLogVO">
+<xs:sequence>
+<xs:element minOccurs="0" name="cust_no" type="xs:string" />
+<xs:element minOccurs="0" name="offer_id" type="xs:string" />
+<xs:element minOccurs="0" name="stbid" type="xs:string" />
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="purchaseOfferlogResponse">
+<xs:sequence>
+<xs:element minOccurs="0" name="return" type="xs:string" />
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="checkHsOfferToCust">
+<xs:sequence>
+<xs:element minOccurs="0" name="arg0" type="xs:string" />
+<xs:element minOccurs="0" name="arg1" type="xs:string" />
+<xs:element minOccurs="0" name="arg2" type="xs:string" />
+<xs:element minOccurs="0" name="arg3" type="xs:string" />
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="checkHsOfferToCustResponse">
+<xs:sequence>
+<xs:element minOccurs="0" name="return" type="tns:hsOfferVO" />
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="checkIsBuylw">
+<xs:sequence>
+<xs:element minOccurs="0" name="arg0" type="xs:string" />
+<xs:element minOccurs="0" name="arg1" type="xs:string" />
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="checkIsBuylwResponse">
+<xs:sequence>
+<xs:element maxOccurs="unbounded" minOccurs="0" name="return" type="tns:hdEffectiveVO" />
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="queryCustomerCard">
+<xs:sequence>
+<xs:element minOccurs="0" name="arg0" type="xs:string" />
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="queryCustomerCardResponse">
+<xs:sequence>
+<xs:element maxOccurs="unbounded" minOccurs="0" name="return" type="tns:customerCardVO" />
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="customerCardVO">
+<xs:sequence>
+<xs:element minOccurs="0" name="applyTypeName" type="xs:string" />
+<xs:element minOccurs="0" name="cardno" type="xs:string" />
+<xs:element minOccurs="0" name="purc_date" type="xs:string" />
+<xs:element minOccurs="0" name="status" type="xs:string" />
+<xs:element minOccurs="0" name="subscriberid" type="xs:string" />
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="queryLatestOffer">
+<xs:sequence />
+</xs:complexType>
+<xs:complexType name="queryLatestOfferResponse">
+<xs:sequence>
+<xs:element maxOccurs="unbounded" minOccurs="0" name="return" type="tns:latestVO" />
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="latestVO">
+<xs:sequence>
+<xs:element minOccurs="0" name="offer_id" type="xs:string" />
+<xs:element minOccurs="0" name="offer_name" type="xs:string" />
+<xs:element minOccurs="0" name="to_url" type="xs:string" />
+<xs:element minOccurs="0" name="url" type="xs:string" />
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="checkIsOpen">
+<xs:sequence>
+<xs:element minOccurs="0" name="arg0" type="xs:string" />
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="checkIsOpenResponse">
+<xs:sequence>
+<xs:element minOccurs="0" name="return" type="xs:string" />
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="modifyCustomerPwd">
+<xs:sequence>
+<xs:element minOccurs="0" name="arg0" type="ns1:modifyCustomerPasswordModel" />
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="modifyCustomerPwdResponse">
+<xs:sequence>
+<xs:element minOccurs="0" name="return" type="xs:string" />
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="queryFfpdDetail">
+<xs:sequence>
+<xs:element minOccurs="0" name="arg0" type="xs:string" />
+<xs:element minOccurs="0" name="arg1" type="xs:string" />
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="queryFfpdDetailResponse">
+<xs:sequence>
+<xs:element maxOccurs="unbounded" minOccurs="0" name="return" type="tns:customerFfpdDetailVO" />
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="customerFfpdDetailVO">
+<xs:sequence>
+<xs:element minOccurs="0" name="cardno" type="xs:string" />
+<xs:element minOccurs="0" name="discount" type="xs:decimal" />
+<xs:element minOccurs="0" name="feename" type="xs:string" />
+<xs:element minOccurs="0" name="money" type="xs:decimal" />
+<xs:element minOccurs="0" name="price" type="xs:decimal" />
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="queryUsertype">
+<xs:sequence>
+<xs:element minOccurs="0" name="arg0" type="xs:string" />
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="queryUsertypeResponse">
+<xs:sequence>
+<xs:element minOccurs="0" name="return" type="tns:usertypeVO" />
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="usertypeVO">
+<xs:sequence>
+<xs:element minOccurs="0" name="company_id" type="xs:string" />
+<xs:element minOccurs="0" name="companyname" type="xs:string" />
+<xs:element minOccurs="0" name="organiseid" type="xs:string" />
+<xs:element minOccurs="0" name="organisename" type="xs:string" />
+<xs:element minOccurs="0" name="usertype" type="xs:string" />
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="checkIsBuyhs">
+<xs:sequence>
+<xs:element minOccurs="0" name="arg0" type="xs:string" />
+<xs:element minOccurs="0" name="arg1" type="xs:string" />
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="checkIsBuyhsResponse">
+<xs:sequence>
+<xs:element maxOccurs="unbounded" minOccurs="0" name="return" type="tns:hdEffectiveVO" />
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="queryHDProdClass">
+<xs:sequence>
+<xs:element minOccurs="0" name="arg0" type="xs:string" />
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="queryHDProdClassResponse">
+<xs:sequence>
+<xs:element minOccurs="0" name="return" type="xs:string" />
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="queryHDEffectives">
+<xs:sequence>
+<xs:element minOccurs="0" name="arg0" type="xs:string" />
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="queryHDEffectivesResponse">
+<xs:sequence>
+<xs:element maxOccurs="unbounded" minOccurs="0" name="return" type="tns:hdEffectiveVO" />
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="addHdMidautumnAclist">
+<xs:sequence>
+<xs:element minOccurs="0" name="arg0" type="xs:string" />
+<xs:element minOccurs="0" name="arg1" type="xs:string" />
+<xs:element minOccurs="0" name="arg2" type="xs:string" />
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="addHdMidautumnAclistResponse">
+<xs:sequence>
+<xs:element minOccurs="0" name="return" type="xs:string" />
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="queryCustomerTransByUser">
+<xs:sequence>
+<xs:element minOccurs="0" name="arg0" type="xs:string" />
+<xs:element minOccurs="0" name="arg1" type="xs:string" />
+<xs:element minOccurs="0" name="arg2" type="xs:string" />
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="queryCustomerTransByUserResponse">
+<xs:sequence>
+<xs:element maxOccurs="unbounded" minOccurs="0" name="return" type="tns:customerTransVO" />
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="customerTransVO">
+<xs:sequence>
+<xs:element minOccurs="0" name="acct_type" type="xs:string" />
+<xs:element minOccurs="0" name="change_time" type="xs:string" />
+<xs:element minOccurs="0" name="change_type" type="xs:string" />
+<xs:element minOccurs="0" name="money" type="xs:decimal" />
+<xs:element minOccurs="0" name="old_acct_balance" type="xs:decimal" />
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="checkIsMarketing">
+<xs:sequence>
+<xs:element minOccurs="0" name="arg0" type="xs:string" />
+<xs:element minOccurs="0" name="arg1" type="xs:string" />
+<xs:element minOccurs="0" name="arg2" type="xs:string" />
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="checkIsMarketingResponse">
+<xs:sequence>
+<xs:element minOccurs="0" name="return" type="xs:string" />
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="queryPayResult">
+<xs:sequence>
+<xs:element minOccurs="0" name="arg0" type="xs:string" />
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="queryPayResultResponse">
+<xs:sequence>
+<xs:element minOccurs="0" name="return" type="xs:string" />
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="getEnddateByProdid">
+<xs:sequence>
+<xs:element minOccurs="0" name="arg0" type="xs:string" />
+<xs:element minOccurs="0" name="arg1" type="xs:string" />
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="getEnddateByProdidResponse">
+<xs:sequence>
+<xs:element minOccurs="0" name="return" type="xs:string" />
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="buyOffer">
+<xs:sequence>
+<xs:element maxOccurs="unbounded" minOccurs="0" name="arg0" type="ns1:offerOrderModel" />
+<xs:element maxOccurs="unbounded" minOccurs="0" name="arg1" type="xs:string" />
+<xs:element minOccurs="0" name="arg2" type="xs:string" />
+<xs:element minOccurs="0" name="arg3" type="xs:string" />
+<xs:element minOccurs="0" name="arg4" type="xs:string" />
+<xs:element minOccurs="0" name="arg5" type="xs:string" />
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="buyOfferResponse">
+<xs:sequence>
+<xs:element minOccurs="0" name="return" type="ns1:purchaseReturn" />
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="rechargFillCard">
+<xs:sequence>
+<xs:element minOccurs="0" name="arg0" type="ns1:chargeCardModel" />
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="rechargFillCardResponse">
+<xs:sequence>
+<xs:element minOccurs="0" name="return" type="ns1:fillCardResult" />
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="queryCustomerInfoByStbid">
+<xs:sequence>
+<xs:element minOccurs="0" name="arg0" type="xs:string" />
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="queryCustomerInfoByStbidResponse">
+<xs:sequence>
+<xs:element minOccurs="0" name="return" type="tns:customerInfoVO" />
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="checkAccount">
+<xs:sequence>
+<xs:element minOccurs="0" name="arg0" type="xs:string" />
+<xs:element minOccurs="0" name="arg1" type="xs:string" />
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="checkAccountResponse">
+<xs:sequence>
+<xs:element minOccurs="0" name="return" type="tns:customerInfoVO" />
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="checkOrderProd">
+<xs:sequence>
+<xs:element minOccurs="0" name="arg0" type="xs:string" />
+<xs:element minOccurs="0" name="arg1" type="xs:string" />
+<xs:element minOccurs="0" name="arg2" type="xs:string" />
+<xs:element minOccurs="0" name="arg3" type="xs:string" />
+<xs:element minOccurs="0" name="arg4" type="xs:string" />
+<xs:element minOccurs="0" name="arg5" type="xs:string" />
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="checkOrderProdResponse">
+<xs:sequence>
+<xs:element minOccurs="0" name="return" type="tns:hsOfferVO" />
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="getResourcesinfoVO">
+<xs:sequence>
+<xs:element minOccurs="0" name="arg0" type="xs:string" />
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="getResourcesinfoVOResponse">
+<xs:sequence>
+<xs:element maxOccurs="unbounded" minOccurs="0" name="return" type="tns:resourcesinfoVO" />
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="resourcesinfoVO">
+<xs:sequence>
+<xs:element minOccurs="0" name="resources_id" type="xs:string" />
+<xs:element minOccurs="0" name="resources_name" type="xs:string" />
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="checkOperator">
+<xs:sequence>
+<xs:element minOccurs="0" name="arg0" type="xs:string" />
+<xs:element minOccurs="0" name="arg1" type="xs:string" />
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="checkOperatorResponse">
+<xs:sequence>
+<xs:element minOccurs="0" name="return" type="xs:string" />
+</xs:sequence>
+</xs:complexType>
+</xs:schema>
+<xs:schema targetNamespace="http://callcenter.ws.boss.dvte.com/" version="1.0" xmlns:tns="http://callcenter.ws.boss.dvte.com/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+<xs:element name="addFee" type="tns:addFee" />
+<xs:element name="addFeeResponse" type="tns:addFeeResponse" />
+<xs:element name="addWebLoginlog" type="tns:addWebLoginlog" />
+<xs:element name="addWebLoginlogResponse" type="tns:addWebLoginlogResponse" />
+<xs:element name="bankWebAlipaySave" type="tns:bankWebAlipaySave" />
+<xs:element name="bankWebAlipaySaveResponse" type="tns:bankWebAlipaySaveResponse" />
+<xs:element name="cancelAccount" type="tns:cancelAccount" />
+<xs:element name="cancelAccountResponse" type="tns:cancelAccountResponse" />
+<xs:element name="checkCustomerByOrderid" type="tns:checkCustomerByOrderid" />
+<xs:element name="checkCustomerByOrderidResponse" type="tns:checkCustomerByOrderidResponse" />
+<xs:element name="getAllWebMenu" type="tns:getAllWebMenu" />
+<xs:element name="getAllWebMenuResponse" type="tns:getAllWebMenuResponse" />
+<xs:element name="getCustNoByAlipayOrderno" type="tns:getCustNoByAlipayOrderno" />
+<xs:element name="getCustNoByAlipayOrdernoResponse" type="tns:getCustNoByAlipayOrdernoResponse" />
+<xs:element name="getCustNoByWebpayOrderIdAndDate" type="tns:getCustNoByWebpayOrderIdAndDate" />
+<xs:element name="getCustNoByWebpayOrderIdAndDateResponse" type="tns:getCustNoByWebpayOrderIdAndDateResponse" />
+<xs:element name="grantAuthRefreshToCA" type="tns:grantAuthRefreshToCA" />
+<xs:element name="grantAuthRefreshToCAResponse" type="tns:grantAuthRefreshToCAResponse" />
+<xs:element name="payFee" type="tns:payFee" />
+<xs:element name="payFeeResponse" type="tns:payFeeResponse" />
+<xs:element name="queryAccountOfNoWriteOffs" type="tns:queryAccountOfNoWriteOffs" />
+<xs:element name="queryAccountOfNoWriteOffsResponse" type="tns:queryAccountOfNoWriteOffsResponse" />
+<xs:element name="queryBankAccountBalance" type="tns:queryBankAccountBalance" />
+<xs:element name="queryBankAccountBalanceResponse" type="tns:queryBankAccountBalanceResponse" />
+<xs:element name="queryOfferPrice" type="tns:queryOfferPrice" />
+<xs:element name="queryOfferPriceResponse" type="tns:queryOfferPriceResponse" />
+<xs:element name="queryOfferSingleStandardPrice" type="tns:queryOfferSingleStandardPrice" />
+<xs:element name="queryOfferSingleStandardPriceResponse" type="tns:queryOfferSingleStandardPriceResponse" />
+<xs:element name="saveWebPayInfo" type="tns:saveWebPayInfo" />
+<xs:element name="saveWebPayInfoResponse" type="tns:saveWebPayInfoResponse" />
+<xs:element name="sendWebAliPay" type="tns:sendWebAliPay" />
+<xs:element name="sendWebAliPayResponse" type="tns:sendWebAliPayResponse" />
+<xs:element name="sendWebPayInfo" type="tns:sendWebPayInfo" />
+<xs:element name="sendWebPayInfoResponse" type="tns:sendWebPayInfoResponse" />
+<xs:element name="stopOrOpenProduct" type="tns:stopOrOpenProduct" />
+<xs:element name="stopOrOpenProductResponse" type="tns:stopOrOpenProductResponse" />
+<xs:complexType name="modifyCustomerPasswordModel">
+<xs:sequence>
+<xs:element minOccurs="0" name="channel" type="xs:string" />
+<xs:element minOccurs="0" name="cust_no" type="xs:string" />
+<xs:element minOccurs="0" name="operatorCode" type="xs:string" />
+<xs:element minOccurs="0" name="password" type="xs:string" />
+<xs:element minOccurs="0" name="remark" type="xs:string" />
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="offerOrderModel">
+<xs:sequence>
+<xs:element minOccurs="0" name="endDate" type="xs:string" />
+<xs:element name="number" type="xs:int" />
+<xs:element minOccurs="0" name="offer_ID" type="xs:string" />
+<xs:element minOccurs="0" name="startDate" type="xs:string" />
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="purchaseReturn">
+<xs:sequence>
+<xs:element minOccurs="0" name="amount" type="xs:string" />
+<xs:element minOccurs="0" name="returnCode" type="xs:string" />
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="chargeCardModel">
+<xs:sequence>
+<xs:element minOccurs="0" name="cust_no" type="xs:string" />
+<xs:element minOccurs="0" name="fillCardPwd" type="xs:string" />
+<xs:element minOccurs="0" name="filltelephone" type="xs:string" />
+<xs:element minOccurs="0" name="operatorCode" type="xs:string" />
+<xs:element minOccurs="0" name="remark" type="xs:string" />
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="fillCardResult">
+<xs:sequence>
+<xs:element name="money" type="xs:int" />
+<xs:element minOccurs="0" name="returnCode" type="xs:string" />
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="grantAuthRefreshToCAResponse">
+<xs:sequence>
+<xs:element minOccurs="0" name="return" type="xs:string" />
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="queryOfferSingleStandardPriceResponse">
+<xs:sequence>
+<xs:element maxOccurs="unbounded" minOccurs="0" name="return" type="tns:singleOfferPriceVo" />
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="singleOfferPriceVo">
+<xs:sequence>
+<xs:element minOccurs="0" name="feeCode" type="xs:string" />
+<xs:element minOccurs="0" name="feeName" type="xs:string" />
+<xs:element minOccurs="0" name="fee_Time" type="xs:decimal" />
+<xs:element minOccurs="0" name="fee_Type" type="xs:string" />
+<xs:element minOccurs="0" name="fee_TypeName" type="xs:string" />
+<xs:element minOccurs="0" name="offer_ID" type="xs:string" />
+<xs:element minOccurs="0" name="offer_Name" type="xs:string" />
+<xs:element minOccurs="0" name="pledge" type="xs:decimal" />
+<xs:element minOccurs="0" name="pledge_AccTypeID" type="xs:string" />
+<xs:element minOccurs="0" name="pledge_AccTypeName" type="xs:string" />
+<xs:element minOccurs="0" name="standFeeID" type="xs:string" />
+<xs:element minOccurs="0" name="standFeeName" type="xs:string" />
+<xs:element minOccurs="0" name="standardPrice" type="xs:decimal" />
+<xs:element minOccurs="0" name="timeUnit" type="xs:string" />
+<xs:element minOccurs="0" name="timeUnitName" type="xs:string" />
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="addFee">
+<xs:sequence>
+<xs:element minOccurs="0" name="arg0" type="tns:addFeeModel" />
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="addFeeModel">
+<xs:sequence>
+<xs:element minOccurs="0" name="channel" type="xs:string" />
+<xs:element minOccurs="0" name="cust_no" type="xs:string" />
+<xs:element minOccurs="0" name="feeSource" type="xs:string" />
+<xs:element name="money" type="xs:double" />
+<xs:element minOccurs="0" name="operatorCode" type="xs:string" />
+<xs:element minOccurs="0" name="payMethod" type="xs:string" />
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="saveWebPayInfoResponse">
+<xs:sequence>
+<xs:element minOccurs="0" name="return" type="xs:string" />
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="addFeeResponse">
+<xs:sequence>
+<xs:element minOccurs="0" name="return" type="xs:string" />
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="getAllWebMenuResponse">
+<xs:sequence>
+<xs:element maxOccurs="unbounded" minOccurs="0" name="return" type="tns:webMenuModel" />
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="webMenuModel">
+<xs:sequence>
+<xs:element minOccurs="0" name="flag" type="xs:string" />
+<xs:element minOccurs="0" name="menucode" type="xs:string" />
+<xs:element minOccurs="0" name="menulevel" type="xs:string" />
+<xs:element minOccurs="0" name="menuname" type="xs:string" />
+<xs:element minOccurs="0" name="menuorder" type="xs:string" />
+<xs:element minOccurs="0" name="menutype" type="xs:string" />
+<xs:element minOccurs="0" name="parentcode" type="xs:string" />
+<xs:element minOccurs="0" name="remarks" type="xs:string" />
+<xs:element minOccurs="0" name="rightlevel" type="xs:string" />
+<xs:element minOccurs="0" name="url" type="xs:string" />
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="queryBankAccountBalance">
+<xs:sequence>
+<xs:element minOccurs="0" name="arg0" type="xs:string" />
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="sendWebAliPayResponse">
+<xs:sequence>
+<xs:element minOccurs="0" name="return" type="xs:string" />
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="getCustNoByWebpayOrderIdAndDate">
+<xs:sequence>
+<xs:element minOccurs="0" name="arg0" type="xs:string" />
+<xs:element minOccurs="0" name="arg1" type="xs:string" />
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="bankWebAlipaySaveResponse">
+<xs:sequence>
+<xs:element minOccurs="0" name="return" type="xs:string" />
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="payFee">
+<xs:sequence>
+<xs:element minOccurs="0" name="arg0" type="xs:string" />
+<xs:element minOccurs="0" name="arg1" type="xs:string" />
+<xs:element minOccurs="0" name="arg2" type="xs:string" />
+<xs:element minOccurs="0" name="arg3" type="xs:string" />
+<xs:element minOccurs="0" name="arg4" type="xs:string" />
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="saveWebPayInfo">
+<xs:sequence>
+<xs:element minOccurs="0" name="arg0" type="xs:string" />
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="grantAuthRefreshToCA">
+<xs:sequence>
+<xs:element maxOccurs="unbounded" minOccurs="0" name="arg0" nillable="true" type="xs:string" />
+<xs:element minOccurs="0" name="arg1" type="xs:string" />
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="sendWebPayInfo">
+<xs:sequence>
+<xs:element minOccurs="0" name="arg0" type="xs:string" />
+<xs:element minOccurs="0" name="arg1" type="xs:string" />
+<xs:element name="arg2" type="xs:double" />
+<xs:element minOccurs="0" name="arg3" type="xs:string" />
+<xs:element minOccurs="0" name="arg4" type="xs:string" />
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="getAllWebMenu">
+<xs:sequence>
+<xs:element minOccurs="0" name="arg0" type="xs:string" />
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="stopOrOpenProduct">
+<xs:sequence>
+<xs:element minOccurs="0" name="arg0" type="xs:string" />
+<xs:element minOccurs="0" name="arg1" type="xs:string" />
+<xs:element minOccurs="0" name="arg2" type="xs:string" />
+<xs:element minOccurs="0" name="arg3" type="xs:string" />
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="getCustNoByAlipayOrderno">
+<xs:sequence>
+<xs:element minOccurs="0" name="arg0" type="xs:string" />
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="checkCustomerByOrderidResponse">
+<xs:sequence>
+<xs:element minOccurs="0" name="return" type="tns:checkResult" />
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="checkResult">
+<xs:sequence>
+<xs:element minOccurs="0" name="cust_name" type="xs:string" />
+<xs:element minOccurs="0" name="cust_no" type="xs:string" />
+<xs:element minOccurs="0" name="cust_typename" type="xs:string" />
+<xs:element minOccurs="0" name="loginType" type="xs:string" />
+<xs:element minOccurs="0" name="member_no" type="xs:string" />
+<xs:element minOccurs="0" name="organiseName" type="xs:string" />
+<xs:element minOccurs="0" name="regionname" type="xs:string" />
+<xs:element minOccurs="0" name="returnCode" type="xs:string" />
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="cancelAccountResponse">
+<xs:sequence>
+<xs:element maxOccurs="unbounded" minOccurs="0" name="return" type="xs:string" />
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="addWebLoginlogResponse">
+<xs:sequence>
+<xs:element minOccurs="0" name="return" type="xs:string" />
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="queryAccountOfNoWriteOffsResponse">
+<xs:sequence>
+<xs:element maxOccurs="unbounded" minOccurs="0" name="return" type="tns:agentBilllistModel" />
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="agentBilllistModel">
+<xs:sequence>
+<xs:element minOccurs="0" name="accStatus" type="xs:string" />
+<xs:element minOccurs="0" name="accStatusName" type="xs:string" />
+<xs:element minOccurs="0" name="accountNO" type="xs:string" />
+<xs:element minOccurs="0" name="createTime" type="xs:string" />
+<xs:element minOccurs="0" name="custAccID" type="xs:string" />
+<xs:element minOccurs="0" name="cust_no" type="xs:string" />
+<xs:element minOccurs="0" name="discount" type="xs:decimal" />
+<xs:element minOccurs="0" name="endTime" type="xs:string" />
+<xs:element minOccurs="0" name="feecode" type="xs:string" />
+<xs:element minOccurs="0" name="feename" type="xs:string" />
+<xs:element minOccurs="0" name="feetime" type="xs:string" />
+<xs:element minOccurs="0" name="money" type="xs:decimal" />
+<xs:element minOccurs="0" name="offer_id" type="xs:string" />
+<xs:element minOccurs="0" name="offer_name" type="xs:string" />
+<xs:element minOccurs="0" name="paymentMoney" type="xs:decimal" />
+<xs:element minOccurs="0" name="price" type="xs:decimal" />
+<xs:element minOccurs="0" name="quantily" type="xs:decimal" />
+<xs:element minOccurs="0" name="remark" type="xs:string" />
+<xs:element minOccurs="0" name="returns" type="xs:decimal" />
+<xs:element minOccurs="0" name="standFeeName" type="xs:string" />
+<xs:element minOccurs="0" name="startTime" type="xs:string" />
+<xs:element minOccurs="0" name="subscriberID" type="xs:string" />
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="cancelAccount">
+<xs:sequence>
+<xs:element maxOccurs="unbounded" minOccurs="0" name="arg0" nillable="true" type="xs:string" />
+<xs:element minOccurs="0" name="arg1" type="xs:string" />
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="queryOfferPriceResponse">
+<xs:sequence>
+<xs:element maxOccurs="unbounded" minOccurs="0" name="return" type="tns:offerPriceModel" />
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="offerPriceModel">
+<xs:complexContent>
+<xs:extension base="tns:baseDomain">
+<xs:sequence>
+<xs:element minOccurs="0" name="offerId" type="xs:string" />
+<xs:element minOccurs="0" name="offerName" type="xs:string" />
+<xs:element minOccurs="0" name="offerPrice" type="xs:decimal" />
+</xs:sequence>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+<xs:complexType name="baseDomain">
+<xs:sequence />
+</xs:complexType>
+<xs:complexType name="webLoginlogModel">
+<xs:complexContent>
+<xs:extension base="tns:baseDomain">
+<xs:sequence>
+<xs:element minOccurs="0" name="cust_no" type="xs:string" />
+<xs:element minOccurs="0" name="ieinfo" type="xs:string" />
+<xs:element minOccurs="0" name="loginTime" type="xs:string" />
+<xs:element minOccurs="0" name="login_seq" type="xs:string" />
+<xs:element minOccurs="0" name="loginhost" type="xs:string" />
+<xs:element minOccurs="0" name="loginip" type="xs:string" />
+<xs:element minOccurs="0" name="number_no" type="xs:string" />
+<xs:element minOccurs="0" name="number_type" type="xs:string" />
+<xs:element minOccurs="0" name="remark" type="xs:string" />
+</xs:sequence>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+<xs:complexType name="queryOfferPrice">
+<xs:sequence>
+<xs:element minOccurs="0" name="arg0" type="xs:string" />
+<xs:element minOccurs="0" name="arg1" type="xs:string" />
+<xs:element minOccurs="0" name="arg2" type="xs:string" />
+<xs:element minOccurs="0" name="arg3" type="xs:string" />
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="queryOfferSingleStandardPrice">
+<xs:sequence>
+<xs:element minOccurs="0" name="arg0" type="xs:string" />
+<xs:element minOccurs="0" name="arg1" type="xs:string" />
+<xs:element minOccurs="0" name="arg2" type="xs:string" />
+<xs:element minOccurs="0" name="arg3" type="xs:string" />
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="payFeeResponse">
+<xs:sequence>
+<xs:element minOccurs="0" name="return" type="xs:string" />
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="stopOrOpenProductResponse">
+<xs:sequence>
+<xs:element minOccurs="0" name="return" type="xs:string" />
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="getCustNoByAlipayOrdernoResponse">
+<xs:sequence>
+<xs:element minOccurs="0" name="return" type="xs:string" />
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="getCustNoByWebpayOrderIdAndDateResponse">
+<xs:sequence>
+<xs:element minOccurs="0" name="return" type="xs:string" />
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="sendWebPayInfoResponse">
+<xs:sequence>
+<xs:element minOccurs="0" name="return" type="xs:string" />
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="bankWebAlipaySave">
+<xs:sequence>
+<xs:element minOccurs="0" name="arg0" type="xs:string" />
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="queryAccountOfNoWriteOffs">
+<xs:sequence>
+<xs:element minOccurs="0" name="arg0" type="xs:string" />
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="sendWebAliPay">
+<xs:sequence>
+<xs:element minOccurs="0" name="arg0" type="xs:string" />
+<xs:element name="arg1" type="xs:double" />
+<xs:element minOccurs="0" name="arg2" type="xs:string" />
+<xs:element minOccurs="0" name="arg3" type="xs:string" />
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="checkCustomerByOrderid">
+<xs:sequence>
+<xs:element minOccurs="0" name="arg0" type="xs:string" />
+<xs:element minOccurs="0" name="arg1" type="xs:string" />
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="queryBankAccountBalanceResponse">
+<xs:sequence>
+<xs:element maxOccurs="unbounded" minOccurs="0" name="return" type="tns:accountBalanceModel" />
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="accountBalanceModel">
+<xs:sequence>
+<xs:element minOccurs="0" name="accTypeID" type="xs:string" />
+<xs:element minOccurs="0" name="accTypeIDName" type="xs:string" />
+<xs:element minOccurs="0" name="balance" type="xs:decimal" />
+<xs:element minOccurs="0" name="currPaymentAmount" type="xs:string" />
+<xs:element minOccurs="0" name="custAccBookID" type="xs:string" />
+<xs:element minOccurs="0" name="cust_Account_ID" type="xs:string" />
+<xs:element minOccurs="0" name="cust_no" type="xs:string" />
+<xs:element minOccurs="0" name="overdraft" type="xs:decimal" />
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="addWebLoginlog">
+<xs:sequence>
+<xs:element minOccurs="0" name="arg0" type="tns:webLoginlogModel" />
+</xs:sequence>
+</xs:complexType>
+</xs:schema>
+  </wsdl:types>
+  <wsdl:message name="addHdMidautumnAclist">
+    <wsdl:part element="tns:addHdMidautumnAclist" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="queryAccount">
+    <wsdl:part element="tns:queryAccount" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="checkBill">
+    <wsdl:part element="tns:checkBill" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="queryUsertype">
+    <wsdl:part element="tns:queryUsertype" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="checkOrderProd">
+    <wsdl:part element="tns:checkOrderProd" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="queryFeeResponse">
+    <wsdl:part element="tns:queryFeeResponse" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="addHdMidautumnAclistResponse">
+    <wsdl:part element="tns:addHdMidautumnAclistResponse" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="openSubscriber">
+    <wsdl:part element="tns:openSubscriber" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="purchaseOfferlogResponse">
+    <wsdl:part element="tns:purchaseOfferlogResponse" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="checkOrderProdToCustResponse">
+    <wsdl:part element="tns:checkOrderProdToCustResponse" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getEnddateByProdid">
+    <wsdl:part element="tns:getEnddateByProdid" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="queryFee">
+    <wsdl:part element="tns:queryFee" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="checkOperator">
+    <wsdl:part element="tns:checkOperator" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="checkHsOfferToCust">
+    <wsdl:part element="tns:checkHsOfferToCust" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="cancelOfferByVo">
+    <wsdl:part element="tns:cancelOfferByVo" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="queryHdMidautumnAcResultResponse">
+    <wsdl:part element="tns:queryHdMidautumnAcResultResponse" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="queryPayOfferResult">
+    <wsdl:part element="tns:queryPayOfferResult" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="queryUsertypeResponse">
+    <wsdl:part element="tns:queryUsertypeResponse" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="queryPayResult">
+    <wsdl:part element="tns:queryPayResult" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="hscheckCancel">
+    <wsdl:part element="tns:hscheckCancel" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="queryHDEffectivesResponse">
+    <wsdl:part element="tns:queryHDEffectivesResponse" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="cancelOfferByVoResponse">
+    <wsdl:part element="tns:cancelOfferByVoResponse" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="queryGridUserStat">
+    <wsdl:part element="tns:queryGridUserStat" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="queryHdMidautumnAcResult">
+    <wsdl:part element="tns:queryHdMidautumnAcResult" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="checkHsOfferResponse">
+    <wsdl:part element="tns:checkHsOfferResponse" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="checkIsMarketing">
+    <wsdl:part element="tns:checkIsMarketing" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="queryeffectiveOffer">
+    <wsdl:part element="tns:queryeffectiveOffer" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="checkIsBuyhs">
+    <wsdl:part element="tns:checkIsBuyhs" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="queryCustomerCard">
+    <wsdl:part element="tns:queryCustomerCard" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="queryFeeDetail">
+    <wsdl:part element="tns:queryFeeDetail" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="checkIsMidAutumnAc">
+    <wsdl:part element="tns:checkIsMidAutumnAc" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="queryeffectiveOfferResponse">
+    <wsdl:part element="tns:queryeffectiveOfferResponse" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="queryFfpdDetail">
+    <wsdl:part element="tns:queryFfpdDetail" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="checkHsOfferToCustResponse">
+    <wsdl:part element="tns:checkHsOfferToCustResponse" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="checkIsOpen">
+    <wsdl:part element="tns:checkIsOpen" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="queryStbType">
+    <wsdl:part element="tns:queryStbType" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="checkIsBuylwResponse">
+    <wsdl:part element="tns:checkIsBuylwResponse" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="checkIsBuylw">
+    <wsdl:part element="tns:checkIsBuylw" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="checkIsMidAutumnAcResponse">
+    <wsdl:part element="tns:checkIsMidAutumnAcResponse" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="modifyCustomerPwd">
+    <wsdl:part element="tns:modifyCustomerPwd" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="queryCustomerInfoByStbid">
+    <wsdl:part element="tns:queryCustomerInfoByStbid" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="queryHDProdClassResponse">
+    <wsdl:part element="tns:queryHDProdClassResponse" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="modifyCustomerPwdResponse">
+    <wsdl:part element="tns:modifyCustomerPwdResponse" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="buyOfferResponse">
+    <wsdl:part element="tns:buyOfferResponse" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="queryAccountResponse">
+    <wsdl:part element="tns:queryAccountResponse" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getResourcesinfoVO">
+    <wsdl:part element="tns:getResourcesinfoVO" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="queryLatestOffer">
+    <wsdl:part element="tns:queryLatestOffer" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="queryGridUserStatResponse">
+    <wsdl:part element="tns:queryGridUserStatResponse" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="queryOfferinstByUserResponse">
+    <wsdl:part element="tns:queryOfferinstByUserResponse" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="queryOfferinstByUser">
+    <wsdl:part element="tns:queryOfferinstByUser" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="purchaseOfferlog">
+    <wsdl:part element="tns:purchaseOfferlog" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="queryHDProdClass">
+    <wsdl:part element="tns:queryHDProdClass" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getEnddateByProdidResponse">
+    <wsdl:part element="tns:getEnddateByProdidResponse" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="checkIsMarketingResponse">
+    <wsdl:part element="tns:checkIsMarketingResponse" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="rechargFillCard">
+    <wsdl:part element="tns:rechargFillCard" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="checkIsOpenResponse">
+    <wsdl:part element="tns:checkIsOpenResponse" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="queryPayResultResponse">
+    <wsdl:part element="tns:queryPayResultResponse" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="queryHDEffectives">
+    <wsdl:part element="tns:queryHDEffectives" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="queryFeeDetailResponse">
+    <wsdl:part element="tns:queryFeeDetailResponse" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="queryPayOfferResultResponse">
+    <wsdl:part element="tns:queryPayOfferResultResponse" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="checkHsOffer">
+    <wsdl:part element="tns:checkHsOffer" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="checkAccountResponse">
+    <wsdl:part element="tns:checkAccountResponse" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="checkOperatorResponse">
+    <wsdl:part element="tns:checkOperatorResponse" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="queryCustomerTransByUser">
+    <wsdl:part element="tns:queryCustomerTransByUser" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="queryFfpdDetailResponse">
+    <wsdl:part element="tns:queryFfpdDetailResponse" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="openSubscriberResponse">
+    <wsdl:part element="tns:openSubscriberResponse" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="hscheckCancelResponse">
+    <wsdl:part element="tns:hscheckCancelResponse" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="queryCustomerInfoByStbidResponse">
+    <wsdl:part element="tns:queryCustomerInfoByStbidResponse" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="queryCustomerCardResponse">
+    <wsdl:part element="tns:queryCustomerCardResponse" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="queryCustomerInfo">
+    <wsdl:part element="tns:queryCustomerInfo" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getOnlineorderResponse">
+    <wsdl:part element="tns:getOnlineorderResponse" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="checkOrderProdToCust">
+    <wsdl:part element="tns:checkOrderProdToCust" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="checkIsBuyhsResponse">
+    <wsdl:part element="tns:checkIsBuyhsResponse" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="checkOrderProdResponse">
+    <wsdl:part element="tns:checkOrderProdResponse" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="buyOffer">
+    <wsdl:part element="tns:buyOffer" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="queryCustomerInfoResponse">
+    <wsdl:part element="tns:queryCustomerInfoResponse" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getResourcesinfoVOResponse">
+    <wsdl:part element="tns:getResourcesinfoVOResponse" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="checkAccount">
+    <wsdl:part element="tns:checkAccount" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="rechargFillCardResponse">
+    <wsdl:part element="tns:rechargFillCardResponse" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="queryCustomerTransByUserResponse">
+    <wsdl:part element="tns:queryCustomerTransByUserResponse" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="checkBillResponse">
+    <wsdl:part element="tns:checkBillResponse" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="queryLatestOfferResponse">
+    <wsdl:part element="tns:queryLatestOfferResponse" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="queryStbTypeResponse">
+    <wsdl:part element="tns:queryStbTypeResponse" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getOnlineorder">
+    <wsdl:part element="tns:getOnlineorder" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:portType name="IFeeQueryNewDAO">
+    <wsdl:operation name="checkHsOffer">
+      <wsdl:input message="tns:checkHsOffer" name="checkHsOffer">
+    </wsdl:input>
+      <wsdl:output message="tns:checkHsOfferResponse" name="checkHsOfferResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="queryGridUserStat">
+      <wsdl:input message="tns:queryGridUserStat" name="queryGridUserStat">
+    </wsdl:input>
+      <wsdl:output message="tns:queryGridUserStatResponse" name="queryGridUserStatResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="queryStbType">
+      <wsdl:input message="tns:queryStbType" name="queryStbType">
+    </wsdl:input>
+      <wsdl:output message="tns:queryStbTypeResponse" name="queryStbTypeResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="checkBill">
+      <wsdl:input message="tns:checkBill" name="checkBill">
+    </wsdl:input>
+      <wsdl:output message="tns:checkBillResponse" name="checkBillResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="queryOfferinstByUser">
+      <wsdl:input message="tns:queryOfferinstByUser" name="queryOfferinstByUser">
+    </wsdl:input>
+      <wsdl:output message="tns:queryOfferinstByUserResponse" name="queryOfferinstByUserResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="queryeffectiveOffer">
+      <wsdl:input message="tns:queryeffectiveOffer" name="queryeffectiveOffer">
+    </wsdl:input>
+      <wsdl:output message="tns:queryeffectiveOfferResponse" name="queryeffectiveOfferResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="cancelOfferByVo">
+      <wsdl:input message="tns:cancelOfferByVo" name="cancelOfferByVo">
+    </wsdl:input>
+      <wsdl:output message="tns:cancelOfferByVoResponse" name="cancelOfferByVoResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="checkIsMidAutumnAc">
+      <wsdl:input message="tns:checkIsMidAutumnAc" name="checkIsMidAutumnAc">
+    </wsdl:input>
+      <wsdl:output message="tns:checkIsMidAutumnAcResponse" name="checkIsMidAutumnAcResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="queryFeeDetail">
+      <wsdl:input message="tns:queryFeeDetail" name="queryFeeDetail">
+    </wsdl:input>
+      <wsdl:output message="tns:queryFeeDetailResponse" name="queryFeeDetailResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getOnlineorder">
+      <wsdl:input message="tns:getOnlineorder" name="getOnlineorder">
+    </wsdl:input>
+      <wsdl:output message="tns:getOnlineorderResponse" name="getOnlineorderResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="queryPayOfferResult">
+      <wsdl:input message="tns:queryPayOfferResult" name="queryPayOfferResult">
+    </wsdl:input>
+      <wsdl:output message="tns:queryPayOfferResultResponse" name="queryPayOfferResultResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="queryCustomerInfo">
+      <wsdl:input message="tns:queryCustomerInfo" name="queryCustomerInfo">
+    </wsdl:input>
+      <wsdl:output message="tns:queryCustomerInfoResponse" name="queryCustomerInfoResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="openSubscriber">
+      <wsdl:input message="tns:openSubscriber" name="openSubscriber">
+    </wsdl:input>
+      <wsdl:output message="tns:openSubscriberResponse" name="openSubscriberResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="checkOrderProdToCust">
+      <wsdl:input message="tns:checkOrderProdToCust" name="checkOrderProdToCust">
+    </wsdl:input>
+      <wsdl:output message="tns:checkOrderProdToCustResponse" name="checkOrderProdToCustResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="queryHdMidautumnAcResult">
+      <wsdl:input message="tns:queryHdMidautumnAcResult" name="queryHdMidautumnAcResult">
+    </wsdl:input>
+      <wsdl:output message="tns:queryHdMidautumnAcResultResponse" name="queryHdMidautumnAcResultResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="queryAccount">
+      <wsdl:input message="tns:queryAccount" name="queryAccount">
+    </wsdl:input>
+      <wsdl:output message="tns:queryAccountResponse" name="queryAccountResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="queryFee">
+      <wsdl:input message="tns:queryFee" name="queryFee">
+    </wsdl:input>
+      <wsdl:output message="tns:queryFeeResponse" name="queryFeeResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="hscheckCancel">
+      <wsdl:input message="tns:hscheckCancel" name="hscheckCancel">
+    </wsdl:input>
+      <wsdl:output message="tns:hscheckCancelResponse" name="hscheckCancelResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="purchaseOfferlog">
+      <wsdl:input message="tns:purchaseOfferlog" name="purchaseOfferlog">
+    </wsdl:input>
+      <wsdl:output message="tns:purchaseOfferlogResponse" name="purchaseOfferlogResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="checkHsOfferToCust">
+      <wsdl:input message="tns:checkHsOfferToCust" name="checkHsOfferToCust">
+    </wsdl:input>
+      <wsdl:output message="tns:checkHsOfferToCustResponse" name="checkHsOfferToCustResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="checkIsBuylw">
+      <wsdl:input message="tns:checkIsBuylw" name="checkIsBuylw">
+    </wsdl:input>
+      <wsdl:output message="tns:checkIsBuylwResponse" name="checkIsBuylwResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="queryCustomerCard">
+      <wsdl:input message="tns:queryCustomerCard" name="queryCustomerCard">
+    </wsdl:input>
+      <wsdl:output message="tns:queryCustomerCardResponse" name="queryCustomerCardResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="queryLatestOffer">
+      <wsdl:input message="tns:queryLatestOffer" name="queryLatestOffer">
+    </wsdl:input>
+      <wsdl:output message="tns:queryLatestOfferResponse" name="queryLatestOfferResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="checkIsOpen">
+      <wsdl:input message="tns:checkIsOpen" name="checkIsOpen">
+    </wsdl:input>
+      <wsdl:output message="tns:checkIsOpenResponse" name="checkIsOpenResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="modifyCustomerPwd">
+      <wsdl:input message="tns:modifyCustomerPwd" name="modifyCustomerPwd">
+    </wsdl:input>
+      <wsdl:output message="tns:modifyCustomerPwdResponse" name="modifyCustomerPwdResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="queryFfpdDetail">
+      <wsdl:input message="tns:queryFfpdDetail" name="queryFfpdDetail">
+    </wsdl:input>
+      <wsdl:output message="tns:queryFfpdDetailResponse" name="queryFfpdDetailResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="queryUsertype">
+      <wsdl:input message="tns:queryUsertype" name="queryUsertype">
+    </wsdl:input>
+      <wsdl:output message="tns:queryUsertypeResponse" name="queryUsertypeResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="checkIsBuyhs">
+      <wsdl:input message="tns:checkIsBuyhs" name="checkIsBuyhs">
+    </wsdl:input>
+      <wsdl:output message="tns:checkIsBuyhsResponse" name="checkIsBuyhsResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="queryHDProdClass">
+      <wsdl:input message="tns:queryHDProdClass" name="queryHDProdClass">
+    </wsdl:input>
+      <wsdl:output message="tns:queryHDProdClassResponse" name="queryHDProdClassResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="queryHDEffectives">
+      <wsdl:input message="tns:queryHDEffectives" name="queryHDEffectives">
+    </wsdl:input>
+      <wsdl:output message="tns:queryHDEffectivesResponse" name="queryHDEffectivesResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="addHdMidautumnAclist">
+      <wsdl:input message="tns:addHdMidautumnAclist" name="addHdMidautumnAclist">
+    </wsdl:input>
+      <wsdl:output message="tns:addHdMidautumnAclistResponse" name="addHdMidautumnAclistResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="queryCustomerTransByUser">
+      <wsdl:input message="tns:queryCustomerTransByUser" name="queryCustomerTransByUser">
+    </wsdl:input>
+      <wsdl:output message="tns:queryCustomerTransByUserResponse" name="queryCustomerTransByUserResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="checkIsMarketing">
+      <wsdl:input message="tns:checkIsMarketing" name="checkIsMarketing">
+    </wsdl:input>
+      <wsdl:output message="tns:checkIsMarketingResponse" name="checkIsMarketingResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="queryPayResult">
+      <wsdl:input message="tns:queryPayResult" name="queryPayResult">
+    </wsdl:input>
+      <wsdl:output message="tns:queryPayResultResponse" name="queryPayResultResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getEnddateByProdid">
+      <wsdl:input message="tns:getEnddateByProdid" name="getEnddateByProdid">
+    </wsdl:input>
+      <wsdl:output message="tns:getEnddateByProdidResponse" name="getEnddateByProdidResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="buyOffer">
+      <wsdl:input message="tns:buyOffer" name="buyOffer">
+    </wsdl:input>
+      <wsdl:output message="tns:buyOfferResponse" name="buyOfferResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="rechargFillCard">
+      <wsdl:input message="tns:rechargFillCard" name="rechargFillCard">
+    </wsdl:input>
+      <wsdl:output message="tns:rechargFillCardResponse" name="rechargFillCardResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="queryCustomerInfoByStbid">
+      <wsdl:input message="tns:queryCustomerInfoByStbid" name="queryCustomerInfoByStbid">
+    </wsdl:input>
+      <wsdl:output message="tns:queryCustomerInfoByStbidResponse" name="queryCustomerInfoByStbidResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="checkAccount">
+      <wsdl:input message="tns:checkAccount" name="checkAccount">
+    </wsdl:input>
+      <wsdl:output message="tns:checkAccountResponse" name="checkAccountResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="checkOrderProd">
+      <wsdl:input message="tns:checkOrderProd" name="checkOrderProd">
+    </wsdl:input>
+      <wsdl:output message="tns:checkOrderProdResponse" name="checkOrderProdResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getResourcesinfoVO">
+      <wsdl:input message="tns:getResourcesinfoVO" name="getResourcesinfoVO">
+    </wsdl:input>
+      <wsdl:output message="tns:getResourcesinfoVOResponse" name="getResourcesinfoVOResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="checkOperator">
+      <wsdl:input message="tns:checkOperator" name="checkOperator">
+    </wsdl:input>
+      <wsdl:output message="tns:checkOperatorResponse" name="checkOperatorResponse">
+    </wsdl:output>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="feeQuerynewdaoSoapBinding" type="tns:IFeeQueryNewDAO">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="checkHsOffer">
+      <soap:operation soapAction="" style="document" />
+      <wsdl:input name="checkHsOffer">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="checkHsOfferResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="queryGridUserStat">
+      <soap:operation soapAction="" style="document" />
+      <wsdl:input name="queryGridUserStat">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="queryGridUserStatResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="queryStbType">
+      <soap:operation soapAction="" style="document" />
+      <wsdl:input name="queryStbType">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="queryStbTypeResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="checkBill">
+      <soap:operation soapAction="" style="document" />
+      <wsdl:input name="checkBill">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="checkBillResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="queryOfferinstByUser">
+      <soap:operation soapAction="" style="document" />
+      <wsdl:input name="queryOfferinstByUser">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="queryOfferinstByUserResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="queryeffectiveOffer">
+      <soap:operation soapAction="" style="document" />
+      <wsdl:input name="queryeffectiveOffer">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="queryeffectiveOfferResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="cancelOfferByVo">
+      <soap:operation soapAction="" style="document" />
+      <wsdl:input name="cancelOfferByVo">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="cancelOfferByVoResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="checkIsMidAutumnAc">
+      <soap:operation soapAction="" style="document" />
+      <wsdl:input name="checkIsMidAutumnAc">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="checkIsMidAutumnAcResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getOnlineorder">
+      <soap:operation soapAction="" style="document" />
+      <wsdl:input name="getOnlineorder">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="getOnlineorderResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="queryFeeDetail">
+      <soap:operation soapAction="" style="document" />
+      <wsdl:input name="queryFeeDetail">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="queryFeeDetailResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="queryCustomerInfo">
+      <soap:operation soapAction="" style="document" />
+      <wsdl:input name="queryCustomerInfo">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="queryCustomerInfoResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="queryPayOfferResult">
+      <soap:operation soapAction="" style="document" />
+      <wsdl:input name="queryPayOfferResult">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="queryPayOfferResultResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="openSubscriber">
+      <soap:operation soapAction="" style="document" />
+      <wsdl:input name="openSubscriber">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="openSubscriberResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="checkOrderProdToCust">
+      <soap:operation soapAction="" style="document" />
+      <wsdl:input name="checkOrderProdToCust">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="checkOrderProdToCustResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="queryHdMidautumnAcResult">
+      <soap:operation soapAction="" style="document" />
+      <wsdl:input name="queryHdMidautumnAcResult">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="queryHdMidautumnAcResultResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="queryAccount">
+      <soap:operation soapAction="" style="document" />
+      <wsdl:input name="queryAccount">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="queryAccountResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="hscheckCancel">
+      <soap:operation soapAction="" style="document" />
+      <wsdl:input name="hscheckCancel">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="hscheckCancelResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="queryFee">
+      <soap:operation soapAction="" style="document" />
+      <wsdl:input name="queryFee">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="queryFeeResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="purchaseOfferlog">
+      <soap:operation soapAction="" style="document" />
+      <wsdl:input name="purchaseOfferlog">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="purchaseOfferlogResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="checkHsOfferToCust">
+      <soap:operation soapAction="" style="document" />
+      <wsdl:input name="checkHsOfferToCust">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="checkHsOfferToCustResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="checkIsBuylw">
+      <soap:operation soapAction="" style="document" />
+      <wsdl:input name="checkIsBuylw">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="checkIsBuylwResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="queryCustomerCard">
+      <soap:operation soapAction="" style="document" />
+      <wsdl:input name="queryCustomerCard">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="queryCustomerCardResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="queryLatestOffer">
+      <soap:operation soapAction="" style="document" />
+      <wsdl:input name="queryLatestOffer">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="queryLatestOfferResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="checkIsOpen">
+      <soap:operation soapAction="" style="document" />
+      <wsdl:input name="checkIsOpen">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="checkIsOpenResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="modifyCustomerPwd">
+      <soap:operation soapAction="" style="document" />
+      <wsdl:input name="modifyCustomerPwd">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="modifyCustomerPwdResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="queryFfpdDetail">
+      <soap:operation soapAction="" style="document" />
+      <wsdl:input name="queryFfpdDetail">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="queryFfpdDetailResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="queryUsertype">
+      <soap:operation soapAction="" style="document" />
+      <wsdl:input name="queryUsertype">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="queryUsertypeResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="checkIsBuyhs">
+      <soap:operation soapAction="" style="document" />
+      <wsdl:input name="checkIsBuyhs">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="checkIsBuyhsResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="queryHDProdClass">
+      <soap:operation soapAction="" style="document" />
+      <wsdl:input name="queryHDProdClass">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="queryHDProdClassResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="queryHDEffectives">
+      <soap:operation soapAction="" style="document" />
+      <wsdl:input name="queryHDEffectives">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="queryHDEffectivesResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="addHdMidautumnAclist">
+      <soap:operation soapAction="" style="document" />
+      <wsdl:input name="addHdMidautumnAclist">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="addHdMidautumnAclistResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="queryCustomerTransByUser">
+      <soap:operation soapAction="" style="document" />
+      <wsdl:input name="queryCustomerTransByUser">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="queryCustomerTransByUserResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="checkIsMarketing">
+      <soap:operation soapAction="" style="document" />
+      <wsdl:input name="checkIsMarketing">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="checkIsMarketingResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="queryPayResult">
+      <soap:operation soapAction="" style="document" />
+      <wsdl:input name="queryPayResult">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="queryPayResultResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getEnddateByProdid">
+      <soap:operation soapAction="" style="document" />
+      <wsdl:input name="getEnddateByProdid">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="getEnddateByProdidResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="buyOffer">
+      <soap:operation soapAction="" style="document" />
+      <wsdl:input name="buyOffer">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="buyOfferResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="rechargFillCard">
+      <soap:operation soapAction="" style="document" />
+      <wsdl:input name="rechargFillCard">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="rechargFillCardResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="checkAccount">
+      <soap:operation soapAction="" style="document" />
+      <wsdl:input name="checkAccount">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="checkAccountResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="queryCustomerInfoByStbid">
+      <soap:operation soapAction="" style="document" />
+      <wsdl:input name="queryCustomerInfoByStbid">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="queryCustomerInfoByStbidResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getResourcesinfoVO">
+      <soap:operation soapAction="" style="document" />
+      <wsdl:input name="getResourcesinfoVO">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="getResourcesinfoVOResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="checkOrderProd">
+      <soap:operation soapAction="" style="document" />
+      <wsdl:input name="checkOrderProd">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="checkOrderProdResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="checkOperator">
+      <soap:operation soapAction="" style="document" />
+      <wsdl:input name="checkOperator">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="checkOperatorResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="feeQuerynewdao">
+    <wsdl:port binding="tns:feeQuerynewdaoSoapBinding" name="FeeQueryNewDAOImplPort">
+      <soap:address location="http://172.25.2.153:8081/bossws/service/feeQuerynewdao" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

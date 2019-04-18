@@ -1,0 +1,41 @@
+server:
+  port: 18081
+spring:
+  cloud:
+    consul:
+      discovery:
+        instance-id: ${spring.application.name}:${vcap.application.instance_id:${spring.application.instance_id:${random.value}}}
+        tags:
+         - xiamen
+        health-check-path: /ipanel/health
+        prefer-ip-address: true
+  sleuth:
+    web:
+      skip-pattern: /ipanel.*|/webjars.*|/v2/api-docs|/swagger.*|/favicon.ico|/service/clean
+    sampler:
+      probability: 0.1
+  zipkin:
+    base-url: http://localhost:9411
+    sender:
+      type: web
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'
+      base-path: /ipanel
+  endpoint:
+    shutdown:
+      enabled: true
+    health:
+      show-details: always
+    prometheus:
+      enabled: true
+info:
+  project: xiamen
+  application:
+    name: boss-service
+logging:
+  path: /Users/luzhihao/tmp/log/
+  level:
+    root: info

@@ -1,0 +1,9 @@
+spring:
+  application:
+    name: XpressEditionGateway
+  profiles:
+    active: dev
+  cloud:
+    consul:
+      host: localhost
+      port: 8500
