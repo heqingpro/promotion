@@ -1,0 +1,14 @@
+spring:
+  application:
+    name: XpressEditionManagement
+  profiles:
+    active: dev
+  cloud:
+    consul:
+      host: localhost
+      port: 8500
+      config:
+        prefix: xiamen
+        fail-fast: true
+        profile-separator: '-'
+        format: yaml

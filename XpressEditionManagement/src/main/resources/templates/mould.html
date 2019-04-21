@@ -1,0 +1,1128 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml" xmlns:shiro="http://www.w3.org/1999/xhtml">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>厦门随心版后台管理</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link th:href="@{/vendor/bootstrap/css/bootstrap.css}" rel="stylesheet">
+
+    <!-- MetisMenu CSS -->
+    <link th:href="@{/vendor/metisMenu/metisMenu.css}" rel="stylesheet">
+
+    <!-- DataTables CSS -->
+    <link th:href="@{/vendor/datatables-plugins/dataTables.bootstrap.css}" rel="stylesheet">
+
+    <!-- DataTables Responsive CSS -->
+    <link th:href="@{/vendor/datatables-responsive/dataTables.responsive.css}" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link th:href="@{/dist/css/sb-admin-2.css}" rel="stylesheet">
+
+    <!-- Custom Fonts -->
+    <link th:href="@{/vendor/font-awesome/css/font-awesome.css}" rel="stylesheet" type="text/css">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- daterange picker -->
+    <link rel="stylesheet" th:href="@{/bower_components/bootstrap-daterangepicker/daterangepicker.css}">
+
+    <!-- datetime picker -->
+    <link rel="stylesheet" th:href="@{/bower_components/bootstrap-datetimepicker/css/bootstrap-datetimepicker.css}">
+
+    <!-- date picker -->
+    <link rel="stylesheet" th:href="@{/bower_components/bootstrap-datepicker/dist/css/bootstrap-datepicker.css}">
+
+    <!--multiselect-->
+    <link rel="stylesheet" th:href="@{/bower_components/bootstrap-multiselect/css/bootstrap-multiselect.css}">
+
+    <!--bootstrap-treeview-->
+    <link th:href="@{/dist/bootstrap-treeview.min.css}" rel="stylesheet">
+
+    <!-- Select2 -->
+    <link rel="stylesheet" th:href="@{/bower_components/select2/dist/css/select2.min.css}">
+
+    <style type="text/css">
+        th, td {
+            white-space: nowrap;
+        }
+    </style>
+</head>
+
+<body>
+
+<div id="wrapper">
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-default navbar-static-top" role="navigation" style="margin-bottom: 0">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" th:href="@{/index}">厦门随心版后台管理系统</a>
+        </div>
+        <!-- /.navbar-header -->
+
+        <div class="navbar-default sidebar" role="navigation">
+            <div class="sidebar-nav navbar-collapse">
+                <ul class="nav" id="side-menu">
+                    <li shiro:hasRole="营销活动管理">
+                        <a href="#"><i class="fa fa-th-large fa-fw"></i> 营销活动管理<span class="fa arrow"></span></a>
+                        <ul class="nav nav-second-level">
+                            <li>
+                                <a th:href="@{/activity/activity}">活动管理</a>
+                            </li>
+                            <li>
+                                <a th:href="@{/activity/goods}">商品管理</a>
+                            </li>
+                            <li>
+                                <a th:href="@{/activity/product}">产品管理</a>
+                            </li>
+                            <li>
+                                <a th:href="@{/activity/filter}">用户过滤名单</a>
+                            </li>
+                            <li>
+                                <a th:href="@{/activity/statistics}">统计</a>
+                            </li>
+                        </ul>
+                        <!-- /.nav-second-level -->
+                    </li>
+                    <li shiro:hasRole="互动弹窗管理">
+                        <a href="#"><i class="fa fa-cubes fa-fw"></i> 互动弹窗管理<span class="fa arrow"></span></a>
+                        <ul class="nav nav-second-level">
+                            <li>
+                                <a th:href="@{/window/mould}">模板管理</a>
+                            </li>
+                            <li>
+                                <a th:href="@{/window/statistics}">统计</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li shiro:hasRole="用户管理">
+                        <a th:href="@{/manager}"><i class="fa fa-user fa-fw"></i> 用户管理</a>
+                    </li>
+                </ul>
+            </div>
+            <!-- /.sidebar-collapse -->
+        </div>
+        <!-- /.navbar-static-side -->
+    </nav>
+
+    <div id="page-wrapper">
+        <div class="row">
+            <div class="col-lg-12">
+                <h3 class="page-header">弹窗模板管理</h3>
+            </div>
+            <!-- /.col-lg-12 -->
+        </div>
+        <!-- /.row -->
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        模板列表
+                    </div>
+                    <!-- /.panel-heading -->
+                    <div class="panel-body">
+                        <table width="100%" class="table table-striped table-bordered table-hover"
+                               id="mouldDataTable">
+                            <thead>
+                            <tr>
+                                <th>序号</th>
+                                <th>模板名称</th>
+                                <th>模板编号</th>
+                                <th>开始日期</th>
+                                <th>截止日期</th>
+                                <th>弹窗按钮1</th>
+                                <th>弹窗按钮2</th>
+                                <th>弹窗按钮3</th>
+                                <th></th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr th:each="info:${list}">
+                                <td th:text="${info.id}"></td>
+                                <td th:text="${info.name}"></td>
+                                <td th:text="${info.code}"></td>
+                                <td th:text="${info.effectiveDate}"></td>
+                                <td th:text="${info.expireDate}"></td>
+                                <td th:text="${info.button1Name}"></td>
+                                <td th:text="${info.button2Name}"></td>
+                                <td th:text="${info.button3Name}"></td>
+                                <td></td>
+                            </tr>
+                            </tbody>
+                        </table>
+                        <!-- /.table-responsive -->
+                    </div>
+                    <!-- /.panel-body -->
+                </div>
+                <!-- /.panel -->
+            </div>
+            <!-- /.col-lg-12 -->
+        </div>
+        <!-- /.row -->
+
+        <!--新增模板-->
+        <!-- Modal -->
+        <div class="modal fade" id="addModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+             aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                                onclick="addMouldFormReset()">&times;
+                        </button>
+                        <h4 class="modal-title">添加模板</h4>
+                    </div>
+                    <div class="modal-body">
+                        <div class="row">
+                            <input style="display: none" id="add_mould_button_number" value="1">
+                            <form role="form" id="add_mould_form">
+                                <div class="col-lg-6">
+                                    <div class="form-group">
+                                        <label>*模板名称:</label>
+                                        <input class="form-control" id="add_mould_name">
+                                    </div>
+                                    <div class="form-group">
+                                        <label>*模板编号:</label>
+                                        <input class="form-control" id="add_mould_code">
+                                    </div>
+                                    <div class="form-group tooltip-demo">
+                                        <label>*模板标题:
+                                            <span style="font-weight: normal; font-size: 10px; color: red">标题长度不超过10个字</span>
+                                        </label>
+                                        <input class="form-control" id="add_mould_title">
+                                    </div>
+                                </div>
+                                <!-- /.col-lg-6 (nested) -->
+
+                                <div class="col-lg-6">
+                                    <div class="form-group tooltip-demo">
+                                        <label>*生效时间:
+                                            <span style="font-weight: normal; font-size: 10px; color: red">自生效时间起，弹窗生效</span>
+                                        </label>
+                                        <div class="form-group input-group">
+                                            <span class="input-group-addon"><i class="fa fa-clock-o"></i></span>
+                                            <input type="text" class="form-control mould-time-select add_effectiveDate"
+                                                   id="add_mould_effectiveDate" name="effectiveDate">
+                                        </div>
+                                    </div>
+                                    <div class="form-group tooltip-demo">
+                                        <label>*失效时间:
+                                            <span style="font-weight: normal; font-size: 10px; color: red">超过失效时间，弹窗失效</span>
+                                        </label>
+                                        <div class="form-group input-group">
+                                            <span class="input-group-addon"><i class="fa fa-clock-o"></i></span>
+                                            <input type="text" class="form-control mould-time-select add_expireDate"
+                                                   id="add_mould_expireDate" name="expireDate">
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- /.col-lg-6 (nested) -->
+
+                                <div class="col-lg-12">
+                                    <div class="form-group tooltip-demo">
+                                        <label>*弹窗内容:
+                                            <span style="font-weight: normal; font-size: 10px; color: red">使用以下字符替换目标文件字段：1)rep-type:互动套餐类型；2)rep-offer:套餐名；3)rep-st:开始日期；4)rep-end:结束日期；5)rep-mon-begin:结束日期当前月第一天；6)rep-mon-end:结束日期当前月最后一天；7)&lt;br&gt;替换回车换行，&amp;nbsp;替换为一个空格。</span>
+                                        </label>
+                                        <textarea class="form-control" rows="3" id="add_mould_content"
+                                                  maxlength="254"></textarea>
+                                    </div>
+                                </div>
+                                <!-- /.col-lg-12 (nested) -->
+
+                                <div id="add_mould_buttons">
+                                    <div id="add_mould_button_1">
+                                        <div class="col-lg-6">
+                                            <div class="form-group">
+                                                <label>弹窗按钮名称:</label>
+                                                <input class="form-control" id="add_mould_button1_name">
+                                            </div>
+
+                                        </div>
+
+                                        <div class="col-lg-6">
+                                            <div class="form-group">
+                                                <label>弹窗按钮链接:</label>
+                                                <input class="form-control" id="add_mould_button1_url">
+                                            </div>
+                                        </div>
+                                        <!-- /.col-lg-6 (nested) -->
+                                    </div>
+
+                                    <div id="add_mould_button_2" style="display: none">
+                                        <div class="col-lg-6">
+                                            <div class="form-group">
+                                                <label>弹窗按钮2名称:</label>
+                                                <input class="form-control" id="add_mould_button2_name">
+                                            </div>
+
+                                        </div>
+
+                                        <div class="col-lg-6">
+                                            <div class="form-group">
+                                                <label>弹窗按钮2链接:</label>
+                                                <input class="form-control" id="add_mould_button2_url">
+                                            </div>
+                                        </div>
+                                        <!-- /.col-lg-6 (nested) -->
+                                    </div>
+
+                                    <div id="add_mould_button_3" style="display: none">
+                                        <div class="col-lg-6">
+                                            <div class="form-group">
+                                                <label>弹窗按钮3名称:</label>
+                                                <input class="form-control" id="add_mould_button3_name">
+                                            </div>
+
+                                        </div>
+
+                                        <div class="col-lg-6">
+                                            <div class="form-group">
+                                                <label>弹窗按钮3链接:</label>
+                                                <input class="form-control" id="add_mould_button3_url">
+                                            </div>
+                                        </div>
+                                        <!-- /.col-lg-6 (nested) -->
+                                    </div>
+                                </div>
+
+                                <div class="col-lg-6" id="btn_add_mould_addMouldButton_div">
+                                    <button type="button" class="btn btn-primary" id="btn_add_mould_addMouldButton">
+                                        添加弹窗按钮
+                                    </button>
+                                </div>
+                                <div class="col-lg-6" id="btn_add_mould_removeMouldButton_div" style="display: none">
+                                    <button type="button" class="btn btn-danger" id="btn_add_mould_removeMouldButton">
+                                        移除弹窗按钮
+                                    </button>
+                                </div>
+                            </form>
+                        </div>
+                        <!-- /.row (nested) -->
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-primary" id="btn_add_mould">保存</button>
+                        <button type="reset" class="btn btn-default" onclick="addMouldFormReset()">重置</button>
+                    </div>
+                </div>
+                <!-- /.modal-content -->
+            </div>
+            <!-- /.modal-dialog -->
+        </div>
+        <!-- /.modal-->
+
+        <!--修改模板-->
+        <!-- Modal -->
+        <div class="modal fade" id="editModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+             aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                                onclick="editMouldFormReset()">&times;
+                        </button>
+                        <h4 class="modal-title">修改模板</h4>
+                    </div>
+                    <div class="modal-body">
+                        <div class="row">
+                            <input style="display: none" id="edit_mould_button_number" value="1">
+                            <form role="form" id="edit_mould_form">
+                                <input style="display: none" id="edit_mould_id">
+                                <div class="col-lg-6">
+                                    <div class="form-group">
+                                        <label>*模板名称:</label>
+                                        <input class="form-control" id="edit_mould_name">
+                                    </div>
+                                    <div class="form-group">
+                                        <label>*模板编号:</label>
+                                        <input class="form-control" id="edit_mould_code">
+                                    </div>
+                                    <div class="form-group tooltip-demo">
+                                        <label>*模板标题:
+                                            <span style="font-weight: normal; font-size: 10px; color: red">标题长度不超过10个字</span>
+                                        </label>
+                                        <input class="form-control" id="edit_mould_title">
+                                    </div>
+                                </div>
+                                <!-- /.col-lg-6 (nested) -->
+
+                                <div class="col-lg-6">
+                                    <div class="form-group tooltip-demo">
+                                        <label>*生效时间:
+                                            <span style="font-weight: normal; font-size: 10px; color: red">自生效时间起，弹窗生效</span>
+                                        </label>
+                                        <div class="form-group input-group">
+                                            <span class="input-group-addon"><i class="fa fa-clock-o"></i></span>
+                                            <input type="text" class="form-control mould-time-select"
+                                                   id="edit_mould_effectiveDate" name="effectiveDate">
+                                        </div>
+                                    </div>
+                                    <div class="form-group tooltip-demo">
+                                        <label>*失效时间:
+                                            <span style="font-weight: normal; font-size: 10px; color: red">超过失效时间，弹窗失效</span>
+                                        </label>
+                                        <div class="form-group input-group">
+                                            <span class="input-group-addon"><i class="fa fa-clock-o"></i></span>
+                                            <input type="text" class="form-control mould-time-select"
+                                                   id="edit_mould_expireDate" name="expireDate">
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- /.col-lg-6 (nested) -->
+
+                                <div class="col-lg-12">
+                                    <div class="form-group tooltip-demo">
+                                        <label>*弹窗内容:
+                                            <span style="font-weight: normal; font-size: 10px; color: red">使用以下字符替换目标文件字段：1)rep-type:互动套餐类型；2)rep-offer:套餐名；3)rep-st:开始日期；4)rep-end:结束日期；5)rep-mon-begin:结束日期当前月第一天；6)rep-mon-end:结束日期当前月最后一天；7)&lt;br&gt;替换回车换行，&amp;nbsp;替换为一个空格。</span>
+                                        </label>
+                                        <textarea class="form-control" rows="3" id="edit_mould_content"
+                                                  maxlength="254"></textarea>
+                                    </div>
+                                </div>
+                                <!-- /.col-lg-12 (nested) -->
+
+                                <div id="edit_mould_buttons">
+                                    <div id="edit_mould_button_1">
+                                        <div class="col-lg-6">
+                                            <div class="form-group">
+                                                <label>弹窗按钮名称:</label>
+                                                <input class="form-control" id="edit_mould_button1_name">
+                                            </div>
+
+                                        </div>
+
+                                        <div class="col-lg-6">
+                                            <div class="form-group">
+                                                <label>弹窗按钮链接:</label>
+                                                <input class="form-control" id="edit_mould_button1_url">
+                                            </div>
+                                        </div>
+                                        <!-- /.col-lg-6 (nested) -->
+                                    </div>
+
+                                    <div id="edit_mould_button_2" style="display: none">
+                                        <div class="col-lg-6">
+                                            <div class="form-group">
+                                                <label>弹窗按钮2名称:</label>
+                                                <input class="form-control" id="edit_mould_button2_name">
+                                            </div>
+
+                                        </div>
+
+                                        <div class="col-lg-6">
+                                            <div class="form-group">
+                                                <label>弹窗按钮2链接:</label>
+                                                <input class="form-control" id="edit_mould_button2_url">
+                                            </div>
+                                        </div>
+                                        <!-- /.col-lg-6 (nested) -->
+                                    </div>
+
+                                    <div id="edit_mould_button_3" style="display: none">
+                                        <div class="col-lg-6">
+                                            <div class="form-group">
+                                                <label>弹窗按钮3名称:</label>
+                                                <input class="form-control" id="edit_mould_button3_name">
+                                            </div>
+
+                                        </div>
+
+                                        <div class="col-lg-6">
+                                            <div class="form-group">
+                                                <label>弹窗按钮3链接:</label>
+                                                <input class="form-control" id="edit_mould_button3_url">
+                                            </div>
+                                        </div>
+                                        <!-- /.col-lg-6 (nested) -->
+                                    </div>
+                                </div>
+
+                                <div class="col-lg-6" id="btn_edit_mould_addMouldButton_div">
+                                    <button type="button" class="btn btn-primary" id="btn_edit_mould_addMouldButton">
+                                        添加弹窗按钮
+                                    </button>
+                                </div>
+                                <div class="col-lg-6" id="btn_edit_mould_removeMouldButton_div" style="display: none">
+                                    <button type="button" class="btn btn-danger" id="btn_edit_mould_removeMouldButton">
+                                        移除弹窗按钮
+                                    </button>
+                                </div>
+                                <!-- /.col-lg-6 (nested) -->
+                            </form>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal"
+                                onclick="editMouldFormReset()">关闭
+                        </button>
+                        <button type="button" class="btn btn-primary" id="btn_edit_mould">保存</button>
+                    </div>
+                </div>
+                <!-- /.modal-content -->
+            </div>
+            <!-- /.modal-dialog -->
+        </div>
+        <!-- /.modal-->
+
+        <!--优先级调整modal-->
+        <!-- Modal -->
+        <div class="row">
+            <div class="modal fade" id="sortModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+                 aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;
+                            </button>
+                            <h4 class="modal-title">设置优先级</h4>
+                        </div>
+                        <div class="modal-body">
+                            <div class="row">
+                                <div style="padding-right: 15px; padding-left: 15px;">
+                                    <table width="100%" class="table table-striped table-bordered table-hover"
+                                           id="priorityOrderDataTable" style="white-space: nowrap;">
+                                        <thead>
+                                        <tr>
+                                            <th>模板编号</th>
+                                            <th>模板名称</th>
+                                            <th>操作</th>
+                                        </tr>
+                                        </thead>
+                                        <tbody>
+                                        </tbody>
+                                    </table>
+                                    <!-- /.table-responsive -->
+                                </div>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-dismiss="modal">关闭
+                            </button>
+                        </div>
+                    </div>
+                    <!-- /.modal-content -->
+                </div>
+                <!-- /.modal-dialog -->
+            </div>
+        </div>
+        <!--/.modal-->
+
+        <!--上传用户文件-->
+        <!-- Modal -->
+        <div class="modal fade" id="uploadModal" role="dialog" aria-labelledby="myModalLabel"
+             aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                                onclick="$('#upload_form')[0].reset()">&times;
+                        </button>
+                        <h4 class="modal-title">上传用户文件</h4>
+                    </div>
+                    <div class="modal-body">
+                        <div class="row">
+                            <form role="form" id="upload_form">
+                                <div class="col-lg-6">
+                                    <div class="form-group">
+                                        <label>*选择模板:</label>
+                                        <select class="form-control select2" style="width: 100%;" id="upload_mould_id">
+                                            <option value=""> 请选择</option>
+                                            <option th:each="info:${list}" th:value="${info.id}"
+                                                    th:text="${info.name}"></option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-lg-6">
+                                    <div class="form-group">
+                                        <label>*用户文件</label>
+                                        <input type="file" id="upload_mould_file" name="file"
+                                               accept="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet, application/vnd.ms-excel">
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal"
+                                onclick="$('#upload_form')[0].reset()">关闭
+                        </button>
+                        <button type="button" class="btn btn-primary" id="btn_upload">保存</button>
+                    </div>
+                </div>
+                <!-- /.modal-content -->
+            </div>
+            <!-- /.modal-dialog -->
+        </div>
+        <!-- /.modal-->
+
+        <div class="row">
+            <div class="col-lg-12">
+
+                <div align="center">
+                    <button data-toggle='modal' data-target='#addModal' type="button" class="btn btn-primary">添加模板
+                    </button>
+                    <button type="button" class="btn btn-primary" id="btn_priority_sort" data-toggle="modal"
+                            data-target="#sortModal">调整模板优先级
+                    </button>
+                    <button type="button" class="btn btn-default" data-toggle="modal"
+                            data-target="#uploadModal">上传用户文件
+                    </button>
+                </div>
+            </div>
+            <!-- /.col-lg-12 -->
+        </div>
+        <!-- /.row -->
+
+    </div>
+    <!-- /#page-wrapper -->
+
+</div>
+<!-- /#wrapper -->
+
+<!-- jQuery -->
+<script th:src="@{/vendor/jquery/jquery.js}"></script>
+
+<!-- Bootstrap Core JavaScript -->
+<script th:src="@{/vendor/bootstrap/js/bootstrap.js}"></script>
+
+<!-- Select2 -->
+<script th:src="@{/bower_components/select2/dist/js/select2.full.js}"></script>
+
+<!-- Metis Menu Plugin JavaScript -->
+<script th:src="@{/vendor/metisMenu/metisMenu.js}"></script>
+
+<!-- DataTables JavaScript -->
+<script th:src="@{/vendor/datatables/js/jquery.dataTables.js}"></script>
+<script th:src="@{/vendor/datatables-plugins/dataTables.bootstrap.js}"></script>
+<script th:src="@{/vendor/datatables-responsive/dataTables.responsive.js}"></script>
+
+<!-- date-range-picker -->
+<script th:src="@{/bower_components/moment/min/moment.min.js}"></script>
+<script th:src="@{/bower_components/bootstrap-daterangepicker/daterangepicker.js}"></script>
+<!-- bootstrap datepicker -->
+<script th:src="@{/bower_components/bootstrap-datepicker/js/bootstrap-datepicker.js}"></script>
+<script th:src="@{/bower_components/bootstrap-datepicker/js/locales/bootstrap-datepicker.zh-CN.js}"></script>
+
+<!-- bootstrap datepicker -->
+<script th:src="@{/bower_components/bootstrap-datetimepicker/js/bootstrap-datetimepicker.js}"></script>
+<script th:src="@{/bower_components/bootstrap-datetimepicker/js/locales/bootstrap-datetimepicker.zh-CN.js}"></script>
+
+<!--bootstrap-treeview-->
+<script th:src="@{/dist/bootstrap-treeview.min.js}"></script>
+
+<!--multiselect-->
+<script th:src="@{/bower_components/bootstrap-multiselect/js/bootstrap-multiselect.js}"></script>
+
+<!-- Custom Theme JavaScript -->
+<script th:src="@{/dist/js/sb-admin-2.js}"></script>
+
+<!-- Page-Level Demo Scripts - Tables - Use for reference -->
+<script th:inline="javascript">
+    $(document).ready(function () {
+
+        //Initialize Select2 Elements
+        $('.select2').select2();
+
+        // 添加框初始化时间
+        $('#addModal').on('shown.bs.modal', function () {
+            $(".add_effectiveDate").datepicker('setDate', getCurrentTime());
+            $(".add_expireDate").datepicker('setDate', '2500-12-31');
+            $("#add_mould_button_number").val(1);
+        });
+
+        // 添加框初始化时间
+        $('#addModal').on('hidden.bs.modal', function () {
+            addMouldFormReset();
+        });
+
+        // 添加框初始化时间
+        $('#editModal').on('hidden.bs.modal', function () {
+            editMouldFormReset();
+        });
+
+        // 添加框新增或减少按钮
+        $('#btn_add_mould_addMouldButton').on('click', function () {
+            var buttonNumbers = $("#add_mould_button_number").val();
+            if (buttonNumbers >= 3) {
+                alert("最多只能添加3个按钮");
+                return;
+            }
+            ++buttonNumbers;
+            var buttonDiv_id = "add_mould_button_" + buttonNumbers;
+            $("#" + buttonDiv_id).attr("style", "display: block");
+            $("#add_mould_button_number").val(buttonNumbers);
+            $("#btn_add_mould_removeMouldButton_div").attr("style", "display: block");
+            if (buttonNumbers == 3) {
+                $("#btn_add_mould_addMouldButton_div").attr("style", "display: none");
+            }
+        });
+
+        $('#btn_add_mould_removeMouldButton').on('click', function () {
+            var buttonNumbers = $("#add_mould_button_number").val();
+            if (buttonNumbers == 1) {
+                alert("最少保留1个按钮");
+                $("#btn_add_mould_removeMouldButton_div").attr("style", "display: none");
+                return;
+            }
+            var buttonDiv_id = "add_mould_button_" + buttonNumbers;
+            $("#" + buttonDiv_id).attr("style", "display: none");
+            $("#add_mould_button" + buttonNumbers + "_name").val("");
+            $("#add_mould_button" + buttonNumbers + "_url").val("");
+            $("#add_mould_button_number").val(--buttonNumbers);
+            if (buttonNumbers == 1) {
+                $("#btn_add_mould_removeMouldButton_div").attr("style", "display: none");
+            }
+            $("#btn_add_mould_addMouldButton_div").attr("style", "display: block");
+        });
+
+        // 修改框新增或减少按钮
+        $('#btn_edit_mould_addMouldButton').on('click', function () {
+            var buttonNumbers = $("#edit_mould_button_number").val();
+            if (buttonNumbers >= 3) {
+                alert("最多只能添加3个按钮");
+                return;
+            }
+            ++buttonNumbers;
+            var buttonDiv_id = "edit_mould_button_" + buttonNumbers;
+            $("#" + buttonDiv_id).attr("style", "display: block");
+            $("#edit_mould_button_number").val(buttonNumbers);
+            $("#btn_edit_mould_removeMouldButton_div").attr("style", "display: block");
+            if (buttonNumbers == 3) {
+                $("#btn_edit_mould_addMouldButton_div").attr("style", "display: none");
+            }
+        });
+
+        $('#btn_edit_mould_removeMouldButton').on('click', function () {
+            var buttonNumbers = $("#edit_mould_button_number").val();
+            if (buttonNumbers == 1) {
+                alert("最少保留1个按钮");
+                $("#btn_edit_mould_removeMouldButton_div").attr("style", "display: none");
+                return;
+            }
+            var buttonDiv_id = "edit_mould_button_" + buttonNumbers;
+            $("#" + buttonDiv_id).attr("style", "display: none");
+            $("#edit_mould_button" + buttonNumbers + "_name").val("");
+            $("#edit_mould_button" + buttonNumbers + "_url").val("");
+            $("#edit_mould_button_number").val(--buttonNumbers);
+            if (buttonNumbers == 1) {
+                $("#btn_edit_mould_removeMouldButton_div").attr("style", "display: none");
+            }
+            $("#btn_edit_mould_addMouldButton_div").attr("style", "display: block");
+        });
+
+        var languageUrl = ["/json/dataTables.chinese.lang.json"];
+        var table = $('#mouldDataTable').DataTable({
+            responsive: false,
+            language: {
+                "url": languageUrl
+            },
+            searching: false,
+            scrollX: true,
+            scrollCollapse: true,
+            autoWidth: false,
+            order: [0, "desc"],
+            columns: [
+                {"data": "id"},
+                {"data": "name"},
+                {"data": "code"},
+                {"data": "effectiveDate"},
+                {"data": "expireDate"},
+                {"data": "button1Name"},
+                {"data": "button2Name"},
+                {"data": "button3Name"},
+                {
+                    "data": null,
+                    "title": "操作",
+                    "defaultContent": "<button class='edit-btn' type='button'>修改</button> &nbsp;&nbsp;&nbsp; <button class='delete-btn' type='button'>删除</button> ",
+                    "width": "150px"
+                }
+            ]
+        });
+
+        // 打印表格行数据
+        $('#mouldDataTable tbody').on('click', 'tr', function () {
+            console.log(table.row(this).data());
+        });
+
+        // 设置时间选择器
+        $('.mould-time-select').datepicker({
+            language: 'zh-CN',
+            weekStart: 1,
+            autoclose: true,
+            minDate: new Date()
+        });
+
+        // 添加模板
+        $('#btn_add_mould').on('click', function () {
+            var name = $("#add_mould_name").val();
+            var code = $("#add_mould_code").val();
+            var content = $("#add_mould_content").val();
+            var title = $("#add_mould_title").val();
+            var effectiveDate = $("#add_mould_effectiveDate").val();
+            var expireDate = $("#add_mould_expireDate").val();
+            var button1Name = $("#add_mould_button1_name").val();
+            var button1Url = $("#add_mould_button1_url").val();
+            var button2Name = $("#add_mould_button2_name").val();
+            var button2Url = $("#add_mould_button2_url").val();
+            var button3Name = $("#add_mould_button3_name").val();
+            var button3Url = $("#add_mould_button3_url").val();
+            var data = {
+                'name': name,
+                'code': code,
+                'content': content,
+                'title': title,
+                'effectiveDate': effectiveDate,
+                'expireDate': expireDate,
+                'button1Name': button1Name,
+                'button1Url': button1Url,
+                'button2Name': button2Name,
+                'button2Url': button2Url,
+                'button3Name': button3Name,
+                'button3Url': button3Url
+            };
+            console.log(JSON.stringify(data));
+            var postUrl = "/window/mould/";
+            $.ajax({
+                "url": [postUrl],
+                "data": JSON.stringify(data),
+                "contentType": "application/json",
+                "type": "POST",
+                "error": function () {
+                    alert("服务器未正常响应，请重试");
+                },
+                "success": function (response) {
+                    console.log(response);
+                    if (response.data) {
+                        alert("添加成功");
+                        window.location.reload();
+                    } else {
+                        alert(response.message);
+                    }
+                }
+            });
+        });
+
+        // 点击修改按钮
+        $("#mouldDataTable tbody").on("click", ".edit-btn", function () {
+            var row = table.row($(this).parents("tr"));
+            var data = row.data();
+            var id = data.id;
+            var mouldInfo = {};
+            var getInfoUrl = "/window/mould/" + id;
+            $.ajax({
+                "url": [getInfoUrl],
+                "type": "GET",
+                "contentType": "application/data",
+                "error": function () {
+                    alert("服务器未正常响应，请重试");
+                },
+                "success": function (response) {
+                    if (response.code == "000") {
+                        mouldInfo = response.data;
+                        // 显示修改框
+                        $('#editModal').modal('show');
+                        console.log(mouldInfo);
+                        fillEditModal(mouldInfo);
+                    } else {
+                        alert(response.message);
+                    }
+                }
+            });
+        });
+
+        // 修改模板
+        $('#btn_edit_mould').on('click', function () {
+            var id = $("#edit_mould_id").val();
+            var name = $("#edit_mould_name").val();
+            var code = $("#edit_mould_code").val();
+            var content = $("#edit_mould_content").val();
+            var title = $("#edit_mould_title").val();
+            var effectiveDate = $("#edit_mould_effectiveDate").val();
+            var expireDate = $("#edit_mould_expireDate").val();
+            var button1Name = $("#edit_mould_button1_name").val();
+            var button1Url = $("#edit_mould_button1_url").val();
+            var button2Name = $("#edit_mould_button2_name").val();
+            var button2Url = $("#edit_mould_button2_url").val();
+            var button3Name = $("#edit_mould_button3_name").val();
+            var button3Url = $("#edit_mould_button3_url").val();
+            var data = {
+                'name': name,
+                'code': code,
+                'content': content,
+                'title': title,
+                'effectiveDate': effectiveDate,
+                'expireDate': expireDate,
+                'button1Name': button1Name,
+                'button1Url': button1Url,
+                'button2Name': button2Name,
+                'button2Url': button2Url,
+                'button3Name': button3Name,
+                'button3Url': button3Url
+            };
+            console.log(JSON.stringify(data));
+            var putUrl = "/window/mould/" + id;
+            $.ajax({
+                "url": [putUrl],
+                "data": JSON.stringify(data),
+                "contentType": "application/json",
+                "type": "PUT",
+                "error": function () {
+                    alert("服务器未正常响应，请重试");
+                },
+                "success": function (response) {
+                    console.log(response);
+                    if (response.data) {
+                        alert("修改成功");
+                        window.location.reload();
+                    } else {
+                        alert(response.message);
+                    }
+                }
+            });
+        });
+
+        // 点击删除按钮
+        $("#mouldDataTable tbody").on("click", ".delete-btn", function () {
+            var row = table.row($(this).parents("tr"));
+            var data = row.data();
+            var delUrl = "/window/mould/" + data.id;
+            var del = confirm("是否删除该模板");
+            if (del) {
+                $.ajax({
+                    "url": [delUrl],
+                    "contentType": "application/json",
+                    "type": "DELETE",
+                    "error": function () {
+                        alert("服务器未正常响应，请重试");
+                    },
+                    "success": function (response) {
+                        if (response.data) {
+                            alert("删除成功");
+                            window.location.reload();
+                        } else {
+                            alert(response.message);
+                        }
+                    }
+                });
+            }
+        });
+
+        $("#btn_upload").on('click', function () {
+            var mouldId = $("#upload_mould_id").val();
+            var form = new FormData();
+            form.append("file", $("#upload_mould_file")[0].files[0]);
+            form.append("mouldId", mouldId);
+            var postUrl = "/window/message/upload";
+            $.ajax({
+                "url": [postUrl],
+                "data": form,
+                "type": "POST",
+                "processData": false,
+                "contentType": false,
+                "error": function () {
+                    alert("服务器未正常响应，请重试");
+                },
+                "success": function (response) {
+                    console.log(response);
+                    if (response.code === "000") {
+                        if ("" === response.data) {
+                            alert("上传成功");
+                            window.location.reload();
+                        } else {
+                            alert(response.data);
+                            window.location.reload();
+                        }
+                    } else {
+                        alert(response.message);
+                    }
+                }
+            });
+        });
+
+        // 点击优先级排序按钮
+        $('#btn_priority_sort').on('click', function () {
+            if ($("#priorityOrderDataTable").hasClass('dataTable')) {
+                $('#priorityOrderDataTable').dataTable().fnDestroy();
+            }
+            var queryUrl = "/window/mould/priorityLevel";
+            $("#priorityOrderDataTable").DataTable({
+                destroy: true,
+                responsive: true,
+                language: {
+                    "url": languageUrl
+                },
+                serverSide: true,
+                searching: false,
+                ajax: {
+                    url: [queryUrl]
+                },
+                paging: false,
+                ordering: false,
+                autoWidth: true,
+                columns: [
+                    {"data": "code"},
+                    {"data": "name"},
+                    {
+                        "data": null,
+                        "title": "排序",
+                        "defaultContent": "<button class='order-btn' type='button' onclick='priorityClick(this)'>上移</button> &nbsp;&nbsp;&nbsp; <button class='order-btn' type='button' onclick='priorityClick(this)'>下移</button>"
+                    }
+                ]
+            });
+        });
+    });
+
+    // 重置添加框
+    function addMouldFormReset() {
+        $('#add_mould_form')[0].reset();
+        $(".add_effectiveDate").datepicker('setDate', getCurrentTime());
+        $(".add_expireDate").datepicker('setDate', '2500-12-31');
+        $("#add_mould_button_2").attr("style", "display: none");
+        $("#add_mould_button_3").attr("style", "display: none");
+        $("#btn_add_mould_addMouldButton_div").attr("style", "display: block");
+        $("#btn_add_mould_removeMouldButton_div").attr("style", "display: none");
+    }
+
+    // 重置修改框
+    function editMouldFormReset() {
+        $('#edit_mould_form')[0].reset();
+        $("#edit_mould_button_number").val(1);
+        $("#edit_mould_button_2").attr("style", "display: none");
+        $("#edit_mould_button_3").attr("style", "display: none");
+        $("#btn_edit_mould_addMouldButton_div").attr("style", "display: block");
+        $("#btn_edit_mould_removeMouldButton_div").attr("style", "display: none");
+    }
+
+    // 填充修改框数据
+    function fillEditModal(data) {
+        editMouldFormReset();
+        $("#edit_mould_id").val(data.id);
+        $("#edit_mould_name").val(data.name);
+        $("#edit_mould_expireDate").datepicker('setDate', data.expireDate.substr(0, 10));
+        $("#edit_mould_effectiveDate").datepicker('setDate', data.effectiveDate.substr(0, 10));
+        $("#edit_mould_content").val(data.content);
+        $("#edit_mould_title").val(data.title);
+        $("#edit_mould_code").val(data.code);
+        $("#edit_mould_button1_name").val(data.button1Name);
+        $("#edit_mould_button1_url").val(data.button1Url);
+
+        // show button div
+        if (null != data.button2Name && "" != data.button2Name) {
+            console.log("button2");
+            $("#edit_mould_button_2").attr("style", "display: block");
+            $("#edit_mould_button_number").val(2);
+        }
+        if (null != data.button3Name && "" != data.button3Name) {
+            console.log("button3");
+            $("#edit_mould_button_2").attr("style", "display: block");
+            $("#edit_mould_button_3").attr("style", "display: block");
+            $("#edit_mould_button_number").val(3);
+        }
+
+        // fill button data
+        $("#edit_mould_button2_name").val(data.button2Name);
+        $("#edit_mould_button2_url").val(data.button2Url);
+        $("#edit_mould_button3_name").val(data.button3Name);
+        $("#edit_mould_button3_url").val(data.button3Url);
+
+        // control addButton and removeButton
+        var buttonNumber = $("#edit_mould_button_number").val();
+        if (buttonNumber > 1) {
+            $("#btn_edit_mould_removeMouldButton_div").attr("style", "display: block");
+        }
+        if (buttonNumber == 3) {
+            $("#btn_edit_mould_addMouldButton_div").attr("style", "display: none");
+        }
+    }
+
+    /**
+     * 获取当前时间 格式：yyyy-MM-dd HH:MM:SS
+     */
+    function getCurrentTime() {
+        var date = new Date();//当前时间
+        var month = zeroFill(date.getMonth() + 1);//月
+        var day = zeroFill(date.getDate());//日
+
+        //当前时间
+        return date.getFullYear() + "-" + month + "-" + day
+    }
+
+    /**
+     * 补零
+     */
+    function zeroFill(i) {
+        if (i >= 0 && i <= 9) {
+            return "0" + i;
+        } else {
+            return i;
+        }
+    }
+
+    function priorityClick(event) {
+        var type;
+        if ($(event).text() == "上移") {
+            type = "up";
+        }
+        if ($(event).text() == "下移") {
+            type = "down";
+        }
+        var row = $("#priorityOrderDataTable").DataTable().row($(event).parents("tr"));
+        var data = row.data();
+        var result = priorityOrder(data.id, type);
+        if (result) {
+            $("#priorityOrderDataTable").DataTable().draw(false);
+        }
+    }
+
+    // 活动优先级排序
+    function priorityOrder(id, type) {
+        var getUrl = "/window/mould/priorityLevel/" + type + "/" + id;
+        var result = false;
+        $.ajax({
+            url: [getUrl],
+            type: "POST",
+            async: false,
+            "error": function () {
+                alert("服务器未正常响应，请重试");
+            },
+            "success": function (response) {
+                if (response.data) {
+                    alert("操作成功");
+                    result = true;
+                } else {
+                    alert(response.message);
+                }
+            }
+        });
+        return result;
+    }
+
+    $('.tooltip-demo').tooltip({
+        selector: "[data-toggle=tooltip]",
+        container: "body"
+    });
+
+    // popover demo
+    $("[data-toggle=popover]").popover()
+</script>
+
+</body>
+
+</html>
